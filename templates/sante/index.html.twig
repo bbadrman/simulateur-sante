@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sante index{% endblock %}
+
+{% block body %}
+    <h1>Sante index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Brithdate</th>
+                <th>Postal</th>
+                <th>RegimSocial</th>
+                <th>Benificaire</th>
+                <th>NbrBenific</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sante in santes %}
+            <tr>
+                <td>{{ sante.id }}</td>
+                <td>{{ sante.nom }}</td>
+                <td>{{ sante.prenom }}</td>
+                <td>{{ sante.brithdate }}</td>
+                <td>{{ sante.postal }}</td>
+                <td>{{ sante.regimSocial }}</td>
+                <td>{{ sante.benificaire }}</td>
+                <td>{{ sante.nbrBenific }}</td>
+                <td>{{ sante.tel }}</td>
+                <td>{{ sante.email }}</td>
+                <td>
+                    <a href="{{ path('app_sante_show', {'id': sante.id}) }}">show</a>
+                    <a href="{{ path('app_sante_edit', {'id': sante.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sante_new') }}">Create new</a>
+{% endblock %}

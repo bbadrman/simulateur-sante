@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sante{% endblock %}
+
+{% block body %}
+    <h1>Sante</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sante.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ sante.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ sante.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Brithdate</th>
+                <td>{{ sante.brithdate }}</td>
+            </tr>
+            <tr>
+                <th>Postal</th>
+                <td>{{ sante.postal }}</td>
+            </tr>
+            <tr>
+                <th>RegimSocial</th>
+                <td>{{ sante.regimSocial }}</td>
+            </tr>
+            <tr>
+                <th>Benificaire</th>
+                <td>{{ sante.benificaire }}</td>
+            </tr>
+            <tr>
+                <th>NbrBenific</th>
+                <td>{{ sante.nbrBenific }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ sante.tel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ sante.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sante_index') }}">back to list</a>
+
+    <a href="{{ path('app_sante_edit', {'id': sante.id}) }}">edit</a>
+
+    {{ include('sante/_delete_form.html.twig') }}
+{% endblock %}

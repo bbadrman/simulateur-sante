@@ -4,53 +4,121 @@
 
 {% block body %}
  <!-- Form Section -->
-    <section class="form-section" id="formulaire">
+   <section class="form-section" id="formulaire">
         <div class="container">
             <div class="form-container">
+            
                 <div class="form-header">
+                <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                Mutuelle Santé
+            </div>
                     <h2>01 87 66 03 57</h2>
                     <p>Obtenez votre devis personnalisé en 2 minutes</p>
                 </div>
-                
+               
                 <div class="form-steps">
-                    <div class="step active">Étape 1: Votre profil</div>
-                    <div class="step">Étape 2: Vos besoins</div>
+                    <div class="step active">Étape 1: Vos besoins</div>
+                    <div class="step">Étape 2: Votre profil</div>
                 </div>
                 
                 <div class="form-body">
-                    <!-- Step 1 -->
+                 {{ form_start(form, {'attr': {'id': 'contactForm', 'class': 'space-y-6'}}) }}
+                    
+                    <!-- Step 1 - Maintenant "Vos besoins en assurance" -->
                     <div class="form-step active" id="step1">
+                        <h3>Vos besoins en assurance</h3>
+                        
+                        <div class="form-group">
+                            
+                                {{ form_row(form.brithdate, {'attr': {'class': 'form-control'}}) }}
+                             
+                        </div>
+                        
+                        <div class="form-group">
+                           
+                            {{ form_row(form.postal, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        
+                         
+                        
+                        <div class="form-group">
+                            {{ form_row(form.regimSocial, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                      <div class="form-group">
+    {{ form_row(form.benificaire, {'attr': {'class': 'form-control', 'id': 'benificaire'}}) }}
+</div>
+
+<div class="form-group" id="nbrBenificGroup" style="display:none;">
+    {{ form_row(form.nbrBenific, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+                        
+                       
+                        
+                        <div class="form-footer">
+                            <button class="btn btn-outline" id="prev-step1" disabled>Retour</button>
+                            <button class="btn" id="next-step1">Continuer</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 - Maintenant "Votre profil" -->
+                    <div class="form-step" id="step2">
                         <h3>Votre profil</h3>
                         
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="mr" name="civility" value="mr">
-                                <label for="mr">M.</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="mrs" name="civility" value="mrs">
-                                <label for="mrs">Mme</label>
-                            </div>
+                        <div class="form-group">
+                            {{ form_label(form.gender, 'Civilité') }}
+                            {{ form_widget(form.gender, {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'Votre civilité'
+                                }
+                            }) }}
+                            {{ form_errors(form.gender) }}
                         </div>
                         
                         <div class="form-group">
-                            <label for="lastname">Nom</label>
-                            <input type="text" id="lastname" class="form-control" placeholder="Votre nom">
+                            {{ form_label(form.nom, 'Nom') }}
+                            {{ form_widget(form.nom, {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'Votre nom'
+                                }
+                            }) }}
+                            {{ form_errors(form.nom) }}
                         </div>
                         
                         <div class="form-group">
-                            <label for="firstname">Prénom</label>
-                            <input type="text" id="firstname" class="form-control" placeholder="Votre prénom">
+                            {{ form_label(form.prenom, 'Prénom') }}
+                            {{ form_widget(form.prenom, {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'Votre prénom'
+                                }
+                            }) }}
+                            {{ form_errors(form.prenom) }}
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="phone">Numéro de téléphone</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="01 04 03 00 00">
+                            {{ form_label(form.tel, 'Téléphone') }}
+                            {{ form_widget(form.tel, {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': '01 04 03 00 00'
+                                }
+                            }) }}
+                            {{ form_errors(form.tel) }}
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="email@gmail.com">
+                            {{ form_label(form.email, 'Email') }}
+                            {{ form_widget(form.email, {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'email@gmail.com'
+                                }
+                            }) }}
+                            {{ form_errors(form.email) }}
                         </div>
                         
                         <div class="checkbox-group">
@@ -69,85 +137,12 @@
                         </div>
                         
                         <div class="form-footer">
-                            <button class="btn btn-outline" id="prev-step1" disabled>Retour</button>
-                            <button class="btn" id="next-step1">Continuer</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 2 -->
-                    <div class="form-step" id="step2">
-                        <h3>Vos besoins en assurance</h3>
-                        
-                        <div class="form-group">
-                            <label>Date de naissance</label>
-                            <div class="date-group">
-                                <input type="text" class="form-control date-input" placeholder="JJ" maxlength="2">
-                                <span>/</span>
-                                <input type="text" class="form-control date-input" placeholder="MM" maxlength="2">
-                                <span>/</span>
-                                <input type="text" class="form-control date-input" placeholder="AAAA" maxlength="4">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="profession">Profession</label>
-                            <input type="text" id="profession" class="form-control">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="postalCode">Votre code postal actuel</label>
-                            <input type="text" id="postalCode" class="form-control">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Disposez-vous d'un contrat individuel ?</label>
-                            <div class="radio-group">
-                                <div class="radio-option">
-                                    <input type="radio" id="hasContractYes" name="hasContract" value="yes">
-                                    <label for="hasContractYes">Oui</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="hasContractNo" name="hasContract" value="no">
-                                    <label for="hasContractNo">Non</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group" id="contractTypeGroup" style="display: none;">
-                            <label for="contractType">Si Oui, lequel ?</label>
-                            <input type="text" id="contractType" class="form-control" placeholder="Nom de votre mutuelle actuelle">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>À quelle date souhaitez-vous être assuré(e) ?</label>
-                            <div class="date-group">
-                                <input type="text" class="form-control date-input" placeholder="JJ" maxlength="2">
-                                <span>/</span>
-                                <input type="text" class="form-control date-input" placeholder="MM" maxlength="2">
-                                <span>/</span>
-                                <input type="text" class="form-control date-input" value="2025" readonly>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Souhaitez-vous ajouter un bénéficiaire ?</label>
-                            <div class="radio-group">
-                                <div class="radio-option">
-                                    <input type="radio" id="addBeneficiaryYes" name="addBeneficiary" value="yes">
-                                    <label for="addBeneficiaryYes">Oui</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="addBeneficiaryNo" name="addBeneficiary" value="no">
-                                    <label for="addBeneficiaryNo">Non</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-footer">
                             <button class="btn btn-outline" id="prev-step2">Retour</button>
                             <button class="btn" id="confirm">Confirmer</button>
                         </div>
                     </div>
+                    
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
