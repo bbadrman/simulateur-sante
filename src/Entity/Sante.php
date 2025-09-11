@@ -47,6 +47,18 @@ class Sante
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $creatAt = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $date1 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $date2 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $date3 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $date4 = null;
+
 
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
@@ -189,6 +201,54 @@ class Sante
     public function setCreatAt(?\DateTimeImmutable $creatAt): static
     {
         $this->creatAt = $creatAt;
+
+        return $this;
+    }
+
+    public function getDate1(): ?string
+    {
+        return $this->date1;
+    }
+
+    public function setDate1(?string $date1): static
+    {
+        $this->date1 = $date1;
+
+        return $this;
+    }
+
+    public function getDate2(): ?string
+    {
+        return $this->date2;
+    }
+
+    public function setDate2(?string $date2): static
+    {
+        $this->date2 = $date2;
+
+        return $this;
+    }
+
+    public function getDate3(): ?string
+    {
+        return $this->date3;
+    }
+
+    public function setDate3(?string $date3): static
+    {
+        $this->date3 = $date3;
+
+        return $this;
+    }
+
+    public function getDate4(): ?string
+    {
+        return $this->date4;
+    }
+
+    public function setDate4(?string $date4): static
+    {
+        $this->date4 = $date4;
 
         return $this;
     }

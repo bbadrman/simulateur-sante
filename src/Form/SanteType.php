@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Sante; 
+use App\Entity\Sante;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,45 +19,36 @@ class SanteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-             ->add('gender', Type\ChoiceType::class, [
-                'label' => 'Genre',
-                'required' => false,
-                'placeholder' => '--Merci de Choisir le genre--',
-                'choices' => [
-                    'Male' => 'Mr',
-                    'Female' => 'Mme'
-                ],
-                'expanded' => false,
-                'multiple' => false
-            ])
+
             ->add('nom', Type\TextType::class, [
                 'label' => 'Nom  ',
                 'attr' => [
 
-                    'placeholder' => 'Tapez le Nom du Client'
+                    'placeholder' => 'Tapez Votre Nom'
                 ],
-                'required' => true,
+                'required' => false,
                 // 'constraints' => new NotBlank(['message' => 'ne peut pas etre vide'])
             ])
             ->add('prenom', Type\TextType::class, [
-                'label' => 'Nom     ',
+                'label' => 'Prenom ',
                 'attr' => [
 
-                    'placeholder' => 'Tapez le Nom du Client'
+                    'placeholder' => 'Tapez votre Prenom'
                 ],
                 'required' => true,
                 // 'constraints' => new NotBlank(['message' => 'ne peut pas etre vide'])
             ])
-             ->add('brithdate', DateType::class, [
-    'label' => 'Date de Naissance',
-    'widget' => 'single_text',
-    'required' => false,
-    'html5' => true,
-    'format' => 'yyyy-MM-dd',
-])
-             
+            ->add('brithdate', DateType::class, [
+                'label' => 'Date de Naissance',
+                'widget' => 'single_text',
+                'required' => true,
+                'html5' => true,
+                'format' => 'yyyy-MM-dd',
+            ])
+
             ->add('postal', TextType::class, [
                 'label' => 'Code Postal  ',
+                'required' => true,
                 'constraints' => new Length(['min' => 5,  'minMessage' => 'le code postale doit etre quatre caactaire mini', 'max' => 5, 'maxMessage' => 'le code postale doite etre 5 caractaire max']),
                 'attr' => [
                     'placeholder' => 'Merci de saisir le Code Postal',
@@ -68,40 +59,54 @@ class SanteType extends AbstractType
                 'required' => true,
                 'placeholder' => '--Merci de selectie-- ',
                 'choices' => [
-                    'regime1' => 'regime1',
-                    'regime2' => 'regime2',
-                    'regime3' => 'regime3',
-                    'regime4' => 'regime4', 
-                     
+                    'GENERAL' => 'GENERAL',
+                    'TNS' => 'TNS',
+                    'AGRICOLE' => 'AGRICOLE',
+                    'ALSOCE MOSELLE' => 'ALSOCE MOSELLE',
+
                 ],
                 'expanded' => false,
                 'multiple' => false
             ])
             ->add('benificaire', Type\ChoiceType::class, [
-                'label' => 'benificaire ',
+                'label' => 'Avez-vous des bénéficiaires ? ',
                 'required' => true,
-                'placeholder' => '--Merci de selectie-- ',
+                'placeholder' => '--Merci de sélectionner-- ',
                 'choices' => [
-                    'Oui' => 'OUI',    
-                    'Non' => 'NON',   
-                     
+                    'Oui' => 'OUI',
+                    'Non' => 'NON',
+
                 ],
                 'expanded' => false,
                 'multiple' => false
             ])
             ->add('nbrBenific', Type\ChoiceType::class, [
-                'label' => 'nbr Benific ',
-                'required' => true,
+                'label' => 'Nombre de bénéficiaires ',
+                'required' => false,
                 'placeholder' => '--Merci de selectie-- ',
-                'choices' => [
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                     
+                'choices' => array_combine(range(1, 4), range(1, 4)),
+                'attr' => [
+                    'class' => 'form-control',
+                    'data-controller' => 'reglement-updater'
                 ],
-                'expanded' => false,
-                'multiple' => false
+            ])
+
+
+            ->add('date1', DateType::class, [
+                'required' => false,
+                'widget' => 'single_text',
+            ])
+            ->add('date2', DateType::class, [
+                'required' => false,
+                'widget' => 'single_text',
+            ])
+            ->add('date3', DateType::class, [
+                'required' => false,
+                'widget' => 'single_text',
+            ])
+            ->add('date4', DateType::class, [
+                'required' => false,
+                'widget' => 'single_text',
             ])
             ->add('tel', Type\TelType::class, [
                 'label' => 'Téléphone 1 ',
@@ -126,6 +131,8 @@ class SanteType extends AbstractType
                     'placeholder' => "Merci de saisir l'adresse email"
                 ]
             ])
+
+
         ;
     }
 
