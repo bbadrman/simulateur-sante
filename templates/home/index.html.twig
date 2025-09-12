@@ -17,25 +17,37 @@
 							<div class="logo">
 								<i class="fas fa-heartbeat"></i>
 							</div>
-							<div class="logo-text">Mutuelle Santé</div>
+							<div class="logo-text">Mutuelle Santé senior</div>
+
 						</div>
-						<a href="tel:0187660357" class="phone-number">01 87 66 03 57</a>
+
+						<a href="tel:0187660357" class="phone-number">
+							<i class="fas fa-phone text-lg lg:text-2xl text-dark"></i>
+							01 87 66 03 57</a>
+
 					</div>
-					<p>Obtenez votre tarif personnalisé en 2 minutes</p>
+					<p>Tarif personalisé en 2 minutes</p>
+
 				</div>
 
 
 				<div class="form-steps">
-					<div class="step active">Étape 1: Vos besoins</div>
-					<div class="step">Étape 2: Votre profil</div>
+					<div class="step active">
+						Étape 1<span class="step-description">: Votre profil</span>
+					</div>
+					<div class="step">
+						Étape 2<span class="step-description">: Votre tarif</span>
+					</div>
 				</div>
+
 
 				<div class="form-body">
 					{{ form_start(form, {'attr': {'id': 'contactForm', 'class': 'space-y-6'}}) }}
 
 					<!-- Step 1 - Maintenant "Vos besoins en assurance" -->
 					<div class="form-step active" id="step1">
-						<h3>Vos besoins en assurance</h3>
+						<h3>Votre profil d’assuré</h3>
+
 
 						<div class="form-group">
 
@@ -80,319 +92,320 @@
 							<div class="form-group date-field" id="dateField4" style="display: none;">
 								{{ form_row(form.date4, {'attr': {'class': 'form-control date-input'}}) }}
 							</div>
+						</div>
 
 
-							<div class="form-footer">
+						<div class="form-footer">
 
 
-								<button class="btn-premiere" id="next-step1" type="button" style="text-align:center;">Continuer</button>
+							<button class="btn-premiere" id="next-step1" type="button" style="text-align:center;">Continuer</button>
 
-
-							</div>
 
 						</div>
 
-						<!-- Step 2 - Maintenant "Votre profil" -->
-						<div class="form-step" id="step2">
-							<h3>Votre profil</h3>
+					</div>
+
+					<!-- Step 2 - Maintenant "Votre profil" -->
+					<div class="form-step" id="step2">
+						<h3>Votre profil</h3>
 
 
-							<div class="form-group">
-								{{ form_label(form.nom, 'Nom') }}
-								{{ form_widget(form.nom, {
+						<div class="form-group">
+							{{ form_label(form.nom, 'Nom') }}
+							{{ form_widget(form.nom, {
                                 'attr': {
                                     'class': 'form-control',
                                     'placeholder': 'Votre nom'
                                 }
                             }) }}
-								{{ form_errors(form.nom) }}
-							</div>
+							{{ form_errors(form.nom) }}
+						</div>
 
-							<div class="form-group">
-								{{ form_label(form.prenom, 'Prénom') }}
-								{{ form_widget(form.prenom, {
+						<div class="form-group">
+							{{ form_label(form.prenom, 'Prénom') }}
+							{{ form_widget(form.prenom, {
                                 'attr': {
                                     'class': 'form-control',
                                     'placeholder': 'Votre prénom'
                                 }
                             }) }}
-								{{ form_errors(form.prenom) }}
-							</div>
+							{{ form_errors(form.prenom) }}
+						</div>
 
-							<div class="form-group">
-								{{ form_label(form.tel, 'Téléphone') }}
-								{{ form_widget(form.tel, {
+						<div class="form-group">
+							{{ form_label(form.tel, 'Téléphone') }}
+							{{ form_widget(form.tel, {
                                 'attr': {
                                     'class': 'form-control',
                                     'placeholder': '01 04 03 00 00'
                                 }
                             }) }}
-								{{ form_errors(form.tel) }}
-							</div>
+							{{ form_errors(form.tel) }}
+						</div>
 
-							<div class="form-group">
-								{{ form_label(form.email, 'Email') }}
-								{{ form_widget(form.email, {
+						<div class="form-group">
+							{{ form_label(form.email, 'Email') }}
+							{{ form_widget(form.email, {
                                 'attr': {
                                     'class': 'form-control',
                                     'placeholder': 'email@gmail.com'
                                 }
                             }) }}
-								{{ form_errors(form.email) }}
+							{{ form_errors(form.email) }}
+						</div>
+
+						<div class="checkbox-group">
+							<p>
+								<strong>Nous n'aimons pas le spam non plus !</strong><br>
+								Votre adresse email nous permettra de vous envoyer le résumé de votre projet.</p>
+
+							<div class="checkbox-option">
+								<input type="checkbox" id="newsletter">
+								<label for="newsletter">J'accepte de recevoir les offres de mutuelle-sante.fr par email et/ou par SMS.</label>
 							</div>
 
-							<div class="checkbox-group">
-								<p>
-									<strong>Nous n'aimons pas le spam non plus !</strong><br>
-									Votre adresse email nous permettra de vous envoyer le résumé de votre projet.</p>
-
-								<div class="checkbox-option">
-									<input type="checkbox" id="newsletter">
-									<label for="newsletter">J'accepte de recevoir les offres de mutuelle-sante.fr par email et/ou par SMS.</label>
-								</div>
-
-								<div class="checkbox-option">
-									<input type="checkbox" id="partners" checked>
-									<label for="partners">J'accepte de recevoir les offres commerciales des partenaires de mutuelle-sante.fr par mail et/ou par SMS.</label>
-								</div>
-							</div>
-
-							<div class="form-footer">
-								<button class="btn btn-outline" id="prev-step2" type="button">Retour</button>
-
-								<button class="btn" id="confirm" type="submit">Confirmer</button>
-
+							<div class="checkbox-option">
+								<input type="checkbox" id="partners" checked>
+								<label for="partners">J'accepte de recevoir les offres commerciales des partenaires de mutuelle-sante.fr par mail et/ou par SMS.</label>
 							</div>
 						</div>
 
-						{{ form_end(form) }}
+						<div class="form-footer">
+							<button class="btn btn-outline" id="prev-step2" type="button">Retour</button>
+
+							<button class="btn" id="confirm" type="submit">Confirmer</button>
+
+						</div>
 					</div>
+
+					{{ form_end(form) }}
 				</div>
 			</div>
-		</section>
-		 <script>
-																					document.addEventListener('DOMContentLoaded', function() {
-												    const benificField = document.getElementById('benificaire');
-												    const nbrBenificGroup = document.getElementById('nbrBenificGroup');
-												    const nbrBenificField = document.getElementById('nbrBenific');
-												    const dateFields = document.querySelectorAll('.date-field');
-												    
-												    // Fonction pour vérifier si la valeur indique "Oui"
-												    function isYes(value) {
-												        if (!value) return false;
-												        const val = value.toString().trim().toLowerCase();
-												        return (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes');
-												    }
-												    
-												    // Gestion de l'affichage du champ nombre de bénéficiaires
-												    function toggleBenificFields() {
-												        let value;
-												        
-												        if (benificField.tagName === 'SELECT') {
-												            value = benificField.options[benificField.selectedIndex].value;
-												        } else if (benificField.type === 'radio') {
-												            const selected = document.querySelector('input[name="' + benificField.name + '"]:checked');
-												            value = selected ? selected.value : '';
-												        } else {
-												            value = benificField.value;
-												        }
-												        
-												        if (isYes(value)) {
-												            nbrBenificGroup.style.display = 'block';
-												            updateDateFields(); // Afficher les champs de date si nécessaire
-												        } else {
-												            nbrBenificGroup.style.display = 'none';
-												            // Cacher tous les champs de date
-												            dateFields.forEach(field => field.style.display = 'none');
-												        }
-												    }
-												    
-												    // Gestion de l'affichage des champs de date en fonction du nombre choisi
-												    function updateDateFields() {
-												        const nbrValue = nbrBenificField ? parseInt(nbrBenificField.value) : 0;
-												        
-												        // Cacher tous les champs de date d'abord
-												        dateFields.forEach((field, index) => {
-												            field.style.display = 'none';
-												        });
-												        
-												        // Afficher le nombre requis de champs de date
-												        for (let i = 1; i <= nbrValue; i++) {
-												            const dateField = document.getElementById('dateField' + i);
-												            if (dateField) {
-												                dateField.style.display = 'block';
-												            }
-												        }
-												    }
-												    
-												    // Écouteurs d'événements
-												    if (benificField) {
-												        if (benificField.tagName === 'SELECT' || benificField.type === 'text') {
-												            benificField.addEventListener('change', toggleBenificFields);
-												        } else if (benificField.type === 'radio') {
-												            document.querySelectorAll('input[name="' + benificField.name + '"]').forEach(radio => {
-												                radio.addEventListener('change', toggleBenificFields);
-												            });
-												        }
-												    }
-												    
-												    if (nbrBenificField) {
-												        nbrBenificField.addEventListener('change', updateDateFields);
-												    }
-												    
-												    // Initialisation au chargement de la page
-												    toggleBenificFields();
-												});
-												
-																					
-																					 
-																																																		
-																																																		     
-																																																			     // Form steps functionality
-																																																	  // Form steps functionality
-																																	    const step1 = document.getElementById("step1");
-																																	    const step2 = document.getElementById("step2");
-																																	    const steps = document.querySelectorAll(".step");
-																																	    const nextStep1Btn = document.getElementById("next-step1");
-																																	    const prevStep2Btn = document.getElementById("prev-step2");
-																																	
-																																	    nextStep1Btn.addEventListener("click", function () {
-																																	        // Champs à vérifier dans l’étape 1
-																																	        const requiredFields = [
-																																	            document.querySelector('[name$="[brithdate]"]'),
-																																	            document.querySelector('[name$="[postal]"]'),
-																																	            document.querySelector('[name$="[regimSocial]"]'),
-																																	            document.querySelector('[name$="[benificaire]"]')
-																																	        ];
-																																	
-																																	        let valid = true;
-																																	
-																																	        requiredFields.forEach(field => {
-																																	            if (field) {
-																																	                // On nettoie les anciens styles
-																																	                field.classList.remove("is-invalid");
-																																	
-																																	                if (!field.value || field.value.trim() === "") {
-																																	                    field.classList.add("is-invalid"); // Ajoute une bordure rouge
-																																	                    valid = false;
-																																	                }
-																																	            }
-																																	        });
-																																	
-																																	        // Si le bénéficiaire est "oui", vérifier aussi nbrBenific
-																																	        const benificField = document.querySelector('[name$="[benificaire]"]');
-																																	        const nbrBenificField = document.querySelector('[name$="[nbrBenific]"]');
-																																	        if (benificField && (benificField.value.toLowerCase() === "oui" || benificField.value === "1")) {
-																																	            if (nbrBenificField && (!nbrBenificField.value || nbrBenificField.value.trim() === "")) {
-																																	                nbrBenificField.classList.add("is-invalid");
-																																	                valid = false;
-																																	            }
-																																	        }
-																																	
-																																	        if (!valid) {
-																																	            alert("Merci de remplir tous les champs obligatoires avant de continuer.");
-																																	            return;  
-																																	        }
-																																	
-																																	        // Si tout est bon, on passe à l’étape 2
-																																	        step1.classList.remove("active");
-																																	        step2.classList.add("active");
-																																	
-																																	        steps[0].classList.remove("active");
-																																	        steps[1].classList.add("active");
-																																	
-																																	        window.scrollTo({
-																																	            top: document.getElementById("formulaire").offsetTop - 70,
-																																	            behavior: "smooth",
-																																	        });
-																																	    });
-																																	
-																																	    prevStep2Btn.addEventListener("click", function () {
-																																	        step2.classList.remove("active");
-																																	        step1.classList.add("active");
-																																	
-																																	        steps[1].classList.remove("active");
-																																	        steps[0].classList.add("active");
-																																	
-																																	        window.scrollTo({
-																																	            top: document.getElementById("formulaire").offsetTop - 70,
-																																	            behavior: "smooth",
-																																	        });
-																																	    });
-																																																																																																		document.addEventListener('DOMContentLoaded', function () {
-																																																																																																		    const nbrBenificGroup = document.getElementById('nbrBenificGroup');
-																																																																																																		
-																																																																																																		    // 1) Essayer de récupérer l'élément par id (si form_row a appliqué l'id)
-																																																																																																		    let benificField = document.getElementById('benificaire');
-																																																																																																		
-																																																																																																		    // 2) Si pas trouvé, chercher par name (utile si ChoiceType expanded ou nom auto-généré)
-																																																																																																		    if (!benificField) {
-																																																																																																		        benificField = document.querySelector('[name$="[benificaire]"]');
-																																																																																																		    }
-																																																																																																		
-																																																																																																		    // 3) Si ce sont des radios (expanded), on gère différemment
-																																																																																																		    const radioNodes = document.querySelectorAll('input[type="radio"][name$="[benificaire]"]');
-																																																																																																		    if (radioNodes && radioNodes.length > 0) {
-																																																																																																		        const handleRadios = () => {
-																																																																																																		            const checked = document.querySelector('input[type="radio"][name$="[benificaire]"]:checked');
-																																																																																																		            if (!checked) {
-																																																																																																		                nbrBenificGroup.style.display = 'none';
-																																																																																																		                return;
-																																																																																																		            }
-																																																																																																		            const val = (checked.value || '').toString().trim().toLowerCase();
-																																																																																																		            if (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes') {
-																																																																																																		                nbrBenificGroup.style.display = 'block';
-																																																																																																		            } else {
-																																																																																																		                nbrBenificGroup.style.display = 'none';
-																																																																																																		            }
-																																																																																																		        };
-																																																																																																		        radioNodes.forEach(r => r.addEventListener('change', handleRadios));
-																																																																																																		        handleRadios(); // initial state
-																																																																																																		        return;
-																																																																																																		    }
-																																																																																																		
-																																																																																																		    // Si on a trouvé un select / input simple
-																																																																																																		    if (!benificField) {
-																																																																																																		        // impossible de localiser le champ : on cache et on log pour debug
-																																																																																																		        console.warn('Champ benificaire introuvable — vérifie le name/id rendu du formulaire.');
-																																																																																																		        nbrBenificGroup.style.display = 'none';
-																																																																																																		        return;
-																																																																																																		    }
-																																																																																																		
-																																																																																																		    function isYes(field) {
-																																																																																																		        // valeur (value) ou texte de l'option sélectionnée (pour les <select>)
-																																																																																																		        let val = '';
-																																																																																																		        if (field.tagName === 'SELECT') {
-																																																																																																		            const opt = field.options[field.selectedIndex];
-																																																																																																		            val = (opt && (opt.value || opt.text)) || '';
-																																																																																																		        } else {
-																																																																																																		            val = field.value || '';
-																																																																																																		        }
-																																																																																																		        val = val.toString().trim().toLowerCase();
-																																																																																																		        return (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes');
-																																																																																																		    }
-																																																																																																		
-																																																																																																		    function toggle() {
-																																																																																																		        nbrBenificGroup.style.display = isYes(benificField) ? 'block' : 'none';
-																																																																																																		    }
-																																																																																																		
-																																																																																																		    // initial
-																																																																																																		    toggle();
-																																																																																																		
-																																																																																																		    // écouteur
-																																																																																																		    benificField.addEventListener('change', toggle);
-																																																																																																		});
-																																																																																			                                                            
-																																																																																									 
-																																																																																										                                
-																																																																																																		</script>
+		</div>
+	</section>
+	 <script>
+																																												document.addEventListener('DOMContentLoaded', function() {
+																																			    const benificField = document.getElementById('benificaire');
+																																			    const nbrBenificGroup = document.getElementById('nbrBenificGroup');
+																																			    const nbrBenificField = document.getElementById('nbrBenific');
+																																			    const dateFields = document.querySelectorAll('.date-field');
+																																			    
+																																			    // Fonction pour vérifier si la valeur indique "Oui"
+																																			    function isYes(value) {
+																																			        if (!value) return false;
+																																			        const val = value.toString().trim().toLowerCase();
+																																			        return (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes');
+																																			    }
+																																			    
+																																			    // Gestion de l'affichage du champ nombre de bénéficiaires
+																																			    function toggleBenificFields() {
+																																			        let value;
+																																			        
+																																			        if (benificField.tagName === 'SELECT') {
+																																			            value = benificField.options[benificField.selectedIndex].value;
+																																			        } else if (benificField.type === 'radio') {
+																																			            const selected = document.querySelector('input[name="' + benificField.name + '"]:checked');
+																																			            value = selected ? selected.value : '';
+																																			        } else {
+																																			            value = benificField.value;
+																																			        }
+																																			        
+																																			        if (isYes(value)) {
+																																			            nbrBenificGroup.style.display = 'block';
+																																			            updateDateFields(); // Afficher les champs de date si nécessaire
+																																			        } else {
+																																			            nbrBenificGroup.style.display = 'none';
+																																			            // Cacher tous les champs de date
+																																			            dateFields.forEach(field => field.style.display = 'none');
+																																			        }
+																																			    }
+																																			    
+																																			    // Gestion de l'affichage des champs de date en fonction du nombre choisi
+																																			    function updateDateFields() {
+																																			        const nbrValue = nbrBenificField ? parseInt(nbrBenificField.value) : 0;
+																																			        
+																																			        // Cacher tous les champs de date d'abord
+																																			        dateFields.forEach((field, index) => {
+																																			            field.style.display = 'none';
+																																			        });
+																																			        
+																																			        // Afficher le nombre requis de champs de date
+																																			        for (let i = 1; i <= nbrValue; i++) {
+																																			            const dateField = document.getElementById('dateField' + i);
+																																			            if (dateField) {
+																																			                dateField.style.display = 'block';
+																																			            }
+																																			        }
+																																			    }
+																																			    
+																																			    // Écouteurs d'événements
+																																			    if (benificField) {
+																																			        if (benificField.tagName === 'SELECT' || benificField.type === 'text') {
+																																			            benificField.addEventListener('change', toggleBenificFields);
+																																			        } else if (benificField.type === 'radio') {
+																																			            document.querySelectorAll('input[name="' + benificField.name + '"]').forEach(radio => {
+																																			                radio.addEventListener('change', toggleBenificFields);
+																																			            });
+																																			        }
+																																			    }
+																																			    
+																																			    if (nbrBenificField) {
+																																			        nbrBenificField.addEventListener('change', updateDateFields);
+																																			    }
+																																			    
+																																			    // Initialisation au chargement de la page
+																																			    toggleBenificFields();
+																																			});
+																																			
+																						 
+																							
+																																																																									
+																																																																									     
+																																																																										     // Form steps functionality
+																																																																								  // Form steps functionality
+																																																								    const step1 = document.getElementById("step1");
+																																																								    const step2 = document.getElementById("step2");
+																																																								    const steps = document.querySelectorAll(".step");
+																																																								    const nextStep1Btn = document.getElementById("next-step1");
+																																																								    const prevStep2Btn = document.getElementById("prev-step2");
+																																																								
+																																																								    nextStep1Btn.addEventListener("click", function () {
+																																																								        // Champs à vérifier dans l’étape 1
+																																																								        const requiredFields = [
+																																																								            document.querySelector('[name$="[brithdate]"]'),
+																																																								            document.querySelector('[name$="[postal]"]'),
+																																																								            document.querySelector('[name$="[regimSocial]"]'),
+																																																								            document.querySelector('[name$="[benificaire]"]')
+																																																								        ];
+																																																								
+																																																								        let valid = true;
+																																																								
+																																																								        requiredFields.forEach(field => {
+																																																								            if (field) {
+																																																								                // On nettoie les anciens styles
+																																																								                field.classList.remove("is-invalid");
+																																																								
+																																																								                if (!field.value || field.value.trim() === "") {
+																																																								                    field.classList.add("is-invalid"); // Ajoute une bordure rouge
+																																																								                    valid = false;
+																																																								                }
+																																																								            }
+																																																								        });
+																																																								
+																																																								        // Si le bénéficiaire est "oui", vérifier aussi nbrBenific
+																																																								        const benificField = document.querySelector('[name$="[benificaire]"]');
+																																																								        const nbrBenificField = document.querySelector('[name$="[nbrBenific]"]');
+																																																								        if (benificField && (benificField.value.toLowerCase() === "oui" || benificField.value === "1")) {
+																																																								            if (nbrBenificField && (!nbrBenificField.value || nbrBenificField.value.trim() === "")) {
+																																																								                nbrBenificField.classList.add("is-invalid");
+																																																								                valid = false;
+																																																								            }
+																																																								        }
+																																																								
+																																																								        if (!valid) {
+																																																								            alert("Merci de remplir tous les champs obligatoires avant de continuer.");
+																																																								            return;  
+																																																								        }
+																																																								
+																																																								        // Si tout est bon, on passe à l’étape 2
+																																																								        step1.classList.remove("active");
+																																																								        step2.classList.add("active");
+																																																								
+																																																								        steps[0].classList.remove("active");
+																																																								        steps[1].classList.add("active");
+																																																								
+																																																								        window.scrollTo({
+																																																								            top: document.getElementById("formulaire").offsetTop - 70,
+																																																								            behavior: "smooth",
+																																																								        });
+																																																								    });
+																																																								
+																																																								    prevStep2Btn.addEventListener("click", function () {
+																																																								        step2.classList.remove("active");
+																																																								        step1.classList.add("active");
+																																																								
+																																																								        steps[1].classList.remove("active");
+																																																								        steps[0].classList.add("active");
+																																																								
+																																																								        window.scrollTo({
+																																																								            top: document.getElementById("formulaire").offsetTop - 70,
+																																																								            behavior: "smooth",
+																																																								        });
+																																																								    });
+																																																																																																																									document.addEventListener('DOMContentLoaded', function () {
+																																																																																																																									    const nbrBenificGroup = document.getElementById('nbrBenificGroup');
+																																																																																																																									
+																																																																																																																									    // 1) Essayer de récupérer l'élément par id (si form_row a appliqué l'id)
+																																																																																																																									    let benificField = document.getElementById('benificaire');
+																																																																																																																									
+																																																																																																																									    // 2) Si pas trouvé, chercher par name (utile si ChoiceType expanded ou nom auto-généré)
+																																																																																																																									    if (!benificField) {
+																																																																																																																									        benificField = document.querySelector('[name$="[benificaire]"]');
+																																																																																																																									    }
+																																																																																																																									
+																																																																																																																									    // 3) Si ce sont des radios (expanded), on gère différemment
+																																																																																																																									    const radioNodes = document.querySelectorAll('input[type="radio"][name$="[benificaire]"]');
+																																																																																																																									    if (radioNodes && radioNodes.length > 0) {
+																																																																																																																									        const handleRadios = () => {
+																																																																																																																									            const checked = document.querySelector('input[type="radio"][name$="[benificaire]"]:checked');
+																																																																																																																									            if (!checked) {
+																																																																																																																									                nbrBenificGroup.style.display = 'none';
+																																																																																																																									                return;
+																																																																																																																									            }
+																																																																																																																									            const val = (checked.value || '').toString().trim().toLowerCase();
+																																																																																																																									            if (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes') {
+																																																																																																																									                nbrBenificGroup.style.display = 'block';
+																																																																																																																									            } else {
+																																																																																																																									                nbrBenificGroup.style.display = 'none';
+																																																																																																																									            }
+																																																																																																																									        };
+																																																																																																																									        radioNodes.forEach(r => r.addEventListener('change', handleRadios));
+																																																																																																																									        handleRadios(); // initial state
+																																																																																																																									        return;
+																																																																																																																									    }
+																																																																																																																									
+																																																																																																																									    // Si on a trouvé un select / input simple
+																																																																																																																									    if (!benificField) {
+																																																																																																																									        // impossible de localiser le champ : on cache et on log pour debug
+																																																																																																																									        console.warn('Champ benificaire introuvable — vérifie le name/id rendu du formulaire.');
+																																																																																																																									        nbrBenificGroup.style.display = 'none';
+																																																																																																																									        return;
+																																																																																																																									    }
+																																																																																																																									
+																																																																																																																									    function isYes(field) {
+																																																																																																																									        // valeur (value) ou texte de l'option sélectionnée (pour les <select>)
+																																																																																																																									        let val = '';
+																																																																																																																									        if (field.tagName === 'SELECT') {
+																																																																																																																									            const opt = field.options[field.selectedIndex];
+																																																																																																																									            val = (opt && (opt.value || opt.text)) || '';
+																																																																																																																									        } else {
+																																																																																																																									            val = field.value || '';
+																																																																																																																									        }
+																																																																																																																									        val = val.toString().trim().toLowerCase();
+																																																																																																																									        return (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes');
+																																																																																																																									    }
+																																																																																																																									
+																																																																																																																									    function toggle() {
+																																																																																																																									        nbrBenificGroup.style.display = isYes(benificField) ? 'block' : 'none';
+																																																																																																																									    }
+																																																																																																																									
+																																																																																																																									    // initial
+																																																																																																																									    toggle();
+																																																																																																																									
+																																																																																																																									    // écouteur
+																																																																																																																									    benificField.addEventListener('change', toggle);
+																																																																																																																									});
+																																																																																																										                                                            
+																																																																																																																 
+																																																																																																																	                                
+																																																																																																																									</script>
 
-		<style>
-			/* Style pour montrer les champs invalides */
-			.is-invalid {
-				border: 2px solid red !important;
-				background-color: #ffe6e6;
-			}
-		</style>
+	<style>
+		/* Style pour montrer les champs invalides */
+		.is-invalid {
+			border: 2px solid red !important;
+			background-color: #ffe6e6;
+		}
+	</style>
 
-	{% endblock %}
+{% endblock %}

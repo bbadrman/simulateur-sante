@@ -55,21 +55,21 @@ class SanteType extends AbstractType
                 ]
             ])
             ->add('regimSocial', Type\ChoiceType::class, [
-                'label' => 'regim social ',
+                'label' => 'Régime social ',
                 'required' => true,
                 'placeholder' => '--Merci de selectie-- ',
                 'choices' => [
                     'GENERAL' => 'GENERAL',
                     'TNS' => 'TNS',
                     'AGRICOLE' => 'AGRICOLE',
-                    'ALSOCE MOSELLE' => 'ALSOCE MOSELLE',
+                    'ALSACE MOSELLE' => 'ALSACE MOSELLE',
 
                 ],
                 'expanded' => false,
                 'multiple' => false
             ])
             ->add('benificaire', Type\ChoiceType::class, [
-                'label' => 'Avez-vous des bénéficiaires ? ',
+                'label' => 'Bénéficiaires ? ',
                 'required' => true,
                 'placeholder' => '--Merci de sélectionner-- ',
                 'choices' => [
@@ -78,7 +78,7 @@ class SanteType extends AbstractType
 
                 ],
                 'expanded' => false,
-                'multiple' => false
+
             ])
             ->add('nbrBenific', Type\ChoiceType::class, [
                 'label' => 'Nombre de bénéficiaires ',

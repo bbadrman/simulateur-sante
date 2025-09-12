@@ -17,6 +17,8 @@
 html,
 body {
     height: 100% !important;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -25,7 +27,8 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     padding: 20px;
-    padding-bottom: 150px !important;
+
+    padding-bottom: 0 !important;
     /* display: flex !important; */
     flex-direction: column !important;
 }
@@ -43,7 +46,7 @@ h4 {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 0px;
 }
 
 /* Header & Navigation */
@@ -71,7 +74,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 05px;
 }
 .logo {
     font-size: 1.8rem;
@@ -82,13 +85,13 @@ header {
 .logo-section {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 05px;
 }
 .logo i {
     font-size: 2rem;
-    color: #fff;
-    margin-right: 10px;
-    /* color: var(--primary-green); */
+    /* color: #fff; */
+    margin-right: 0px;
+    color: var(--primary-green);
 }
 .logo-text {
     font-size: 1.5rem;
@@ -193,7 +196,7 @@ nav a:hover {
     padding: 6rem 0;
     padding-top: 10px;
     padding-bottom: 45px;
-    background-color: var(--light-gray);
+    background-color: var(--white);
     margin: 0 auto;
 }
 
@@ -201,16 +204,17 @@ nav a:hover {
     background: var(--white);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1); */
     max-width: 800px;
     margin: 0 auto;
 }
 
 .form-header {
     /* background: var(--primary-blue); */
-    background: linear-gradient(135deg, #4caf50 0%, #2196f3 100%);
-    color: var(--white);
-    padding: 30px;
+    /* background: linear-gradient(135deg, #4caf50 0%, #2196f3 100%); */
+    /* color: var(--white); */
+    color: darkcyan;
+    padding: 0px;
     text-align: center;
 }
 
@@ -223,6 +227,7 @@ nav a:hover {
     font-size: 1.2rem;
     opacity: 0.9;
     margin: 0;
+    margin-top: -5px;
 }
 
 .form-steps {
@@ -241,6 +246,7 @@ nav a:hover {
 
 .step.active {
     background: var(--primary-green);
+    border-radius: 10px;
 }
 
 .step:not(:last-child):after {
@@ -264,7 +270,7 @@ nav a:hover {
 }
 
 .form-body {
-    padding: 2.5rem;
+    padding: 1rem;
 }
 
 .form-step {
@@ -287,10 +293,13 @@ nav a:hover {
 
 .form-control {
     width: 100%;
+    height: 60px;
     padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #535252;
+    border-radius: 10px;
     font-family: "Open Sans", sans-serif;
+    color: var(--text-dark) !important;
+    background-color: #ffff;
 }
 
 .radio-group {
@@ -340,9 +349,10 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    /* border-top: 1px solid #eee; */
 }
+
 /* .form-footer-premiere {
     display: flex;
     justify-content: space-between;
@@ -365,11 +375,14 @@ nav a:hover {
 
 /* Footer */
 footer {
-    background: var(--primary-blue);
+    /* background: var(--primary-blue); */
+    background: var(--primary-green);
+
     color: var(--white);
-    padding: 4rem 0 2rem;
-    padding: 2rem 0 !important;
-    margin-top: auto !important;
+    padding: 0.5rem 0 2rem;
+    text-align: center;
+
+    margin-bottom: 3px;
 }
 
 .footer-container {
@@ -462,9 +475,11 @@ footer {
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: white;
+    color: var(--primary-green);
 }
-
+.step-description {
+    display: inline;
+}
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -481,7 +496,7 @@ footer {
 @media (max-width: 768px) {
     .header-top {
         flex-direction: column;
-        gap: 15px;
+        gap: 5px;
         text-align: center;
     }
 
@@ -490,11 +505,11 @@ footer {
     }
 
     .phone-number {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .logo-text {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .logo i {
@@ -529,9 +544,18 @@ footer {
         font-size: 2.2rem;
     }
 
-    /* .form-steps {
-        flex-direction: column;
-    } */
+    .step {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .form-steps {
+        height: 40px; /* Hauteur fixe compacte */
+    }
 
     .step:not(:last-child):after {
         display: none;
@@ -539,6 +563,12 @@ footer {
     .step {
         border-right: none;
         border-bottom: 1px solid #dee2e6;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .step-description {
+        display: none;
     }
 
     .step:last-child {
@@ -580,5 +610,20 @@ footer {
     footer .d-flex {
         flex-direction: column !important;
         text-align: center;
+    }
+    .form-header p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin: 0;
+    }
+    .form-control {
+        width: 100%;
+        height: 50px;
+        padding: 1rem;
+        border: 1px solid #535252;
+        border-radius: 10px;
+        font-family: "Open Sans", sans-serif;
+        color: var(--text-dark) !important;
+        background-color: #ffff;
     }
 }
