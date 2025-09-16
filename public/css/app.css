@@ -7,6 +7,7 @@
     --light-gray: #f8f9fa;
     --text-dark: #333333;
     --text-light: #666666;
+    --vh: 1vh;
 }
 
 * {
@@ -228,6 +229,7 @@ nav a:hover {
     opacity: 0.9;
     margin: 0;
     margin-top: -5px;
+    margin-bottom: 09px;
 }
 
 .form-steps {
@@ -283,6 +285,8 @@ nav a:hover {
 
 .form-group {
     margin-bottom: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -615,6 +619,7 @@ footer {
         font-size: 0.9rem;
         opacity: 0.9;
         margin: 0;
+        margin-bottom: 09px;
     }
     .form-control {
         width: 100%;
@@ -626,4 +631,649 @@ footer {
         color: var(--text-dark) !important;
         background-color: #ffff;
     }
+}
+
+/* Styles spécifiques pour mentions légales */
+.mentions-hero {
+    background: linear-gradient(
+        135deg,
+        var(--primary-blue) 0%,
+        var(--secondary-blue) 100%
+    );
+    color: var(--white);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+.mentions-content {
+    padding: 4rem 0;
+    background-color: var(--white);
+    min-height: calc(100vh - 200px);
+}
+
+.mentions-section {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.mentions-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.mentions-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(
+        135deg,
+        var(--primary-green),
+        var(--secondary-blue)
+    );
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.mentions-icon i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.mentions-title {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.mentions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-green);
+    margin-top: 1rem;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, #fff5f5, #fed7d7);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #e53e3e;
+    margin-top: 1rem;
+}
+
+.contact-box {
+    background: linear-gradient(135deg, #f0fff4, #c6f6d5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-green);
+    margin-top: 1rem;
+}
+
+.cookies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.cookie-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.cookie-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+}
+
+.rights-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rights-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.rights-list li:before {
+    content: "✓";
+    color: var(--primary-green);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.cta-section {
+    background: linear-gradient(
+        135deg,
+        var(--primary-green),
+        var(--secondary-blue)
+    );
+    color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-home {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary-blue);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    transition: all 0.3s;
+}
+
+.btn-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .mentions-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .mentions-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mentions-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .mentions-section {
+        padding: 1.5rem;
+    }
+
+    .mentions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cookies-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Styles spécifiques pour politique de confidentialité */
+.politique-hero {
+    background: linear-gradient(
+        135deg,
+        var(--primary-blue) 0%,
+        var(--secondary-blue) 100%
+    );
+    color: var(--white);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+.politique-content {
+    padding: 4rem 0;
+    background-color: var(--light-gray);
+    min-height: calc(100vh - 200px);
+}
+
+.content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary-green);
+    display: inline-block;
+}
+
+.section-title:first-child {
+    margin-top: 0;
+}
+
+.subsection-title {
+    color: var(--secondary-blue);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.text-content {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.text-intro {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--primary-green);
+    margin-bottom: 2rem;
+}
+
+.data-list {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.data-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.data-list li {
+    padding: 0.75rem 0 0.75rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+}
+
+.data-list li:last-child {
+    border-bottom: none;
+}
+
+.data-list li:before {
+    content: "•";
+    color: var(--primary-green);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.data-table {
+    width: 100%;
+    background: var(--white);
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.data-table th {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: top;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, #e8f5e8, #d4edda);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-green);
+    margin: 1.5rem 0;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #ffc107;
+    margin: 1.5rem 0;
+}
+
+.contact-info {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.contact-info h4 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.cta-section {
+    background: linear-gradient(
+        135deg,
+        var(--primary-green),
+        var(--secondary-blue)
+    );
+    color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-home {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary-blue);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    transition: all 0.3s;
+}
+
+.btn-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .politique-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .content-wrapper {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .table-container {
+        margin: 1rem -1rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Détection Safari Mobile */
+@supports (-webkit-touch-callout: none) {
+    /* Variables pour Safari Mobile */
+    :root {
+        --initial-vh: 100vh;
+        --dynamic-vh: 100vh;
+    }
+
+    /* Fix principal pour Safari Mobile */
+    body {
+        height: 100vh;
+        height: -webkit-fill-available; /* Safari Mobile spécifique */
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+        position: relative;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Container principal stabilisé */
+    .form-section {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+        padding: 2rem 0 8rem; /* Espace en bas pour le clavier */
+        position: relative;
+    }
+
+    /* Empêcher le zoom automatique avec font-size 16px minimum */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 16px !important;
+        -webkit-appearance: none;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    .form-control {
+        font-size: 16px !important;
+        -webkit-appearance: none;
+        -webkit-border-radius: 10px;
+        transform: translateZ(0); /* Force l'accélération matérielle */
+    }
+
+    /* Stabiliser le formulaire pendant la saisie */
+    .form-container {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    /* Empêcher le décalage lors du focus */
+    .form-control:focus {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Fix pour les select sur Safari Mobile */
+    select.form-control {
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+    }
+
+    /* Stabiliser les étapes du formulaire */
+    .form-steps {
+        position: relative;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+
+    /* Empêcher les sauts visuels */
+    .form-step {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        position: relative;
+    }
+
+    /* Header stabilisé */
+    .form-header {
+        position: relative;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        padding-bottom: 1rem;
+    }
+
+    /* Empêcher le bounce scroll */
+    .form-body {
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+        position: relative;
+    }
+
+    /* Fix pour le footer avec espace clavier */
+    .form-footer {
+        padding: 2rem 0 4rem; /* Espace supplémentaire pour le clavier */
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* Fix spécifique pour iPhone en portrait */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    @supports (-webkit-touch-callout: none) {
+        body {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .form-section {
+            height: auto;
+            min-height: 100vh;
+            padding: 1rem 0 12rem; /* Plus d'espace pour le clavier iPhone */
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* Réduire la taille des champs sur petit écran */
+        .form-control {
+            height: 50px;
+            padding: 0.75rem;
+        }
+
+        /* Ajuster l'espacement des groupes */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer avec plus d'espace */
+        .form-footer {
+            padding: 2rem 0 6rem;
+        }
+    }
+}
+
+/* Fix pour iPad */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    @supports (-webkit-touch-callout: none) {
+        .form-section {
+            padding: 3rem 0 10rem; /* Espace adapté pour iPad */
+        }
+
+        .form-control {
+            height: 60px;
+        }
+    }
+}
+
+/* Classes utilitaires pour Safari Mobile */
+.safari-mobile-fix {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Empêcher les glitches visuels lors des transitions */
+.form-step.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    display: block;
+}
+
+.form-step {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* Fix pour la validation visuelle */
+.is-invalid {
+    border: 2px solid red !important;
+    background-color: #ffe6e6 !important;
+    -webkit-appearance: none !important;
+}
+.error-messages {
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+    color: #dc2626;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    animation: slideDown 0.3s ease-out;
+}
+.error-messages ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.error-messages li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Erreurs inline pour chaque champ */
+.form-group .invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #dc2626;
+}
+
+/* Style pour les champs en erreur */
+.form-control.is-invalid {
+    border-color: #dc2626;
+    background-color: #fef2f2;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }

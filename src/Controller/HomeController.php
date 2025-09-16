@@ -16,32 +16,45 @@ final class HomeController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
 
-         $sante = new Sante();
+        $sante = new Sante();
         $form = $this->createForm(SanteType::class, $sante);
         $form->handleRequest($request);
-         if ($form->isSubmitted() && $form->isValid()) {
+
+        // if ($form->isSubmitted()) {
+        //     dump($form->getErrors(true)); // 🔎 debug utile
+        // }
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($sante);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Formulaire enregistré avec succès !');
             return $this->redirectToRoute('app_reponse', [], Response::HTTP_SEE_OTHER);
         }
-        return $this->render('home/index.html.twig', [
-            'sante' => $sante,
-            'form' => $form,] 
+
+
+        return $this->render(
+            'home/index.html.twig',
+            [
+                'sante' => $sante,
+                'form' => $form,
+            ]
         );
     }
 
-     #[Route('/politique-legale', name: 'app_politique-legale')]
+    #[Route('/politique-legale', name: 'app_politique-legale')]
     public function politique(): Response
     {
-        return $this->render('home/politique-legale.html.twig' 
+        return $this->render(
+            'home/politique-legale.html.twig'
         );
     }
 
-     #[Route('/mention-legale', name: 'app_mention-legale')]
+    #[Route('/mention-legale', name: 'app_mention-legale')]
     public function mention(): Response
     {
-        return $this->render('home/mention-legale.html.twig' 
+        return $this->render(
+            'home/mention-legale.html.twig'
         );
     }
 

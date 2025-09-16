@@ -8,9 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type as Type;
-
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\Length;
 
@@ -49,7 +48,6 @@ class SanteType extends AbstractType
             ->add('postal', TextType::class, [
                 'label' => 'Code Postal  ',
                 'required' => true,
-                'constraints' => new Length(['min' => 5,  'minMessage' => 'le code postale doit etre quatre caactaire mini', 'max' => 5, 'maxMessage' => 'le code postale doite etre 5 caractaire max']),
                 'attr' => [
                     'placeholder' => 'Merci de saisir le Code Postal',
                 ]
@@ -95,21 +93,29 @@ class SanteType extends AbstractType
             ->add('date1', DateType::class, [
                 'required' => false,
                 'widget' => 'single_text',
+                'input' => 'string', // 👈 très important
+                'format' => 'yyyy-MM-dd',
             ])
             ->add('date2', DateType::class, [
                 'required' => false,
                 'widget' => 'single_text',
+                'input' => 'string', // 👈 très important
+                'format' => 'yyyy-MM-dd',
             ])
             ->add('date3', DateType::class, [
                 'required' => false,
                 'widget' => 'single_text',
+                'input' => 'string', // 👈 très important
+                'format' => 'yyyy-MM-dd',
             ])
             ->add('date4', DateType::class, [
                 'required' => false,
                 'widget' => 'single_text',
+                'input' => 'string', // 👈 très important
+                'format' => 'yyyy-MM-dd',
             ])
             ->add('tel', Type\TelType::class, [
-                'label' => 'Téléphone 1 ',
+                'label' => 'Téléphone',
                 'required' => true,
                 'constraints' => new Length([
                     'min' => 10,
@@ -119,9 +125,10 @@ class SanteType extends AbstractType
                     'maxMessage' => '  
                     le numéro de téléphone doit composer des 10 chiffres y a compris le 0 '
                 ]),
-
                 'attr' => [
-                    'placeholder' => 'Merci de saisir le numéro de téléphone'
+                    'placeholder' => '01 23 45 67 89',
+                    'pattern' => '[0-9]{10}',
+                    'maxlength' => 10
                 ]
             ])
             ->add('email', Type\EmailType::class, [

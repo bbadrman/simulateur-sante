@@ -1,285 +1,425 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Demande Envoyée avec Succès{% endblock %}
+{% block title %}Demande Envoyée avec Succès
+{% endblock %}
 
 {% block body %}
+
 	<!-- Messages Flash -->
-	{% for message in app.flashes('success') %}
-		<div class="alert alert-success alert-dismissible fade show m-4" role="alert">
-			<i class="fas fa-check-circle me-2"></i>
-			{{ message }}
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
-	{% endfor %}
+	{# {% for message in app.flashes('success') %}
+						<div style="background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 5px; margin: 1rem; animation: slideDown 0.3s ease-out;">
+							<i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+							{{ message }}
+						</div>
+					{% endfor %} #}
+
+		<style>
+/* Styles pour la page de réponse */
+.success-hero {
+	background: linear-gradient(0deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+	color: var(--white);
+	padding: 8rem 0 6rem;
+	text-align: center;
+	margin-top: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.success-hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.1) 4px);
+	z-index: 1;
+}
+
+.success-content {
+	position: relative;
+	z-index: 2;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.success-card {
+	background: var(--white);
+	border-radius: 20px;
+	padding: 3rem;
+	margin: 4rem auto;
+	max-width: 1000px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+	position: relative;
+	overflow: hidden;
+}
+
+.success-icon {
+	width: 100px;
+	height: 100px;
+	background: linear-gradient(135deg, #ffc107, #ffb300);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 2rem;
+	animation: bounceIn 1s ease-out;
+}
+
+.success-title {
+	color: var(--text-dark);
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	line-height: 1.2;
+}
+
+.success-description {
+	color: var(--text-dark);
+	font-size: 1.2rem;
+	margin-bottom: 2.5rem;
+	line-height: 1.6;
+}
+
+.btn-home {
+	display: inline-block;
+	background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+	color: var(--white);
+	padding: 1rem 2.5rem;
+	border-radius: 50px;
+	text-decoration: none;
+	font-weight: 700;
+	transition: all 0.3s;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-home:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	color: var(--white);
+	text-decoration: none;
+}
+
+.info-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 2rem;
+	margin-top: 4rem;
+}
+
+.info-card {
+	background: #f8f9fa;
+	padding: 2rem;
+	border-radius: 15px;
+	text-align: center;
+	transition: all 0.3s ease;
+	border: 1px solid #e9ecef;
+}
+
+.info-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+	width: 60px;
+	height: 60px;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1rem;
+	font-size: 1.5rem;
+	color: var(--white);
+}
+
+.info-icon.primary {
+	background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+}
+
+.info-icon.success {
+	background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.info-icon.info {
+	background: linear-gradient(135deg, #17a2b8, #6f42c1);
+}
+
+.info-title {
+	color: var(--text-dark);
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+.info-description {
+	color: var(--text-light);
+	line-height: 1.5;
+}
+
+.contact-section {
+	background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+	padding: 2.5rem;
+	border-radius: 15px;
+	margin-top: 3rem;
+	text-align: center;
+	border: 1px solid #e9ecef;
+}
+
+.contact-title {
+	color: var(--primary-blue);
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+
+.contact-description {
+	color: var(--text-light);
+	margin-bottom: 2rem;
+}
+
+.btn-phone {
+	display: inline-block;
+	background: linear-gradient(135deg, var(--primary-green), #20c997);
+	color: var(--white);
+	padding: 1rem 2rem;
+	border-radius: 50px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.3s;
+	font-size: 1.1rem;
+}
+
+.btn-phone:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(42, 157, 143, 0.3);
+	color: var(--white);
+	text-decoration: none;
+}
+
+/* Animations */
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.05);
+	}
+	70% {
+		transform: scale(0.9);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in-up {
+	animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Floating icons */
+.floating-icon {
+	position: absolute;
+	z-index: 1;
+	animation: floating 6s ease-in-out infinite;
+}
+
+.floating-icon.top-left {
+	top: 2rem;
+	left: 2rem;
+	font-size: 3rem;
+	color: rgba(255, 193, 7, 0.3);
+}
+
+.floating-icon.bottom-right {
+	bottom: 2rem;
+	right: 2rem;
+	font-size: 2.5rem;
+	color: rgba(255, 193, 7, 0.25);
+	animation-delay: -2s;
+}
+
+@keyframes floating {
+	0,
+	100% {
+		transform: translateY(0px) rotate(0deg);
+	}
+	25% {
+		transform: translateY(-20px) rotate(-5deg);
+	}
+	50% {
+		transform: translateY(-10px) rotate(0deg);
+	}
+	75% {
+		transform: translateY(-30px) rotate(5deg);
+	}
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+	.success-hero {
+		padding: 6rem 0 4rem;
+	}
+
+	.success-card {
+		margin: 2rem 1rem;
+		padding: 2rem;
+	}
+
+	.success-title {
+		font-size: 2rem;
+	}
+
+	.success-description {
+		font-size: 1rem;
+	}
+
+	.info-grid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.info-card {
+		padding: 1.5rem;
+	}
+
+	.floating-icon.top-left,
+	.floating-icon.bottom-right {
+		display: none;
+	}
+}
+	</style>
 
 	<!-- Hero Section -->
-	<section class="hero-section position-relative overflow-hidden">
-		<!-- Background decoration -->
-		<div class="position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(26, 75, 140, 0.9) 0%, rgba(45, 111, 181, 0.8) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="scanlines" patternUnits="userSpaceOnUse" width="100" height="2"><rect width="100" height="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23scanlines)"/></svg>"></div>
-		
-		<!-- Floating Icons -->
-		<div class="position-absolute top-0 start-0 m-5" style="z-index: 2;">
-			<i class="fas fa-taxi text-warning display-4 opacity-25 floating-icon"></i>
-		</div>
-		<div class="position-absolute bottom-0 end-0 m-5" style="z-index: 2; animation-delay: -2s;">
-			<i class="fas fa-taxi text-warning display-3 opacity-25 floating-icon"></i>
-		</div>
+		<section
+		class="success-hero"> <!-- Floating Icons -->
+		<i class="fas fa-heartbeat floating-icon top-left"></i>
+		<i class="fas fa-heartbeat floating-icon top-left"></i>
 
-		<!-- Main Content -->
-		<div class="container py-5" style="position: relative; z-index: 3; margin-top: 100px; margin-bottom: 100px;">
-			<div class="row justify-content-center">
-				<div class="col-lg-10">
-					<!-- Success Card -->
-					<div class="card border-0 shadow-lg overflow-hidden" style="border-radius: 25px;">
-						<div class="card-body p-0">
-							<!-- Success Section -->
-							<div class="text-center p-5 text-white position-relative" style="background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);">
-								<!-- Background Pattern -->
-								<div class="position-absolute w-100 h-100 top-0 start-0" style="background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="scanlines-success" patternUnits="userSpaceOnUse" width="100" height="2"><rect width="100" height="1" fill="black" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23scanlines-success)"/></svg>"></div>
-								
-								<div class="position-relative" style="z-index: 2;">
-									<!-- Icon -->
-									<div class="d-inline-flex align-items-center justify-content-center mb-4 rounded-4 bg-dark bg-opacity-25" style="width: 80px; height: 80px;">
-										<i class="fas fa-check-circle display-5 text-dark"></i>
-									</div>
-									
-									<!-- Title -->
-									<h1 class="display-4 fw-bold mb-4 text-dark">Votre demande a été envoyée avec succès !</h1>
-									
-									<!-- Description -->
-									<p class="lead mb-4 text-dark opacity-75" style="max-width: 600px; margin: 0 auto;">
-										Un conseiller vous contactera rapidement pour finaliser votre dossier et vous proposer les meilleures offres d'assurance taxi.
-									</p>
-									
-									<!-- Button -->
-									<a href="/" class="btn btn-dark btn-lg rounded-pill px-4 py-3 fw-semibold shadow-sm hover-lift">
-										<i class="fas fa-home me-2"></i>
-										Revenir à l'accueil
-									</a>
-								</div>
-							</div>
 
-							<!-- Additional Info Section -->
-							<div class="p-5">
-								<div class="row g-4">
-									<div class="col-md-4 text-center">
-										<div class="p-4 h-100">
-											<div class="text-primary mb-3">
-												<i class="fas fa-clock display-6"></i>
-											</div>
-											<h5 class="fw-bold mb-3">Réponse Rapide</h5>
-											<p class="text-muted mb-0">Un conseiller vous contactera dans les 24 heures suivant votre demande.</p>
-										</div>
-									</div>
-									
-									<div class="col-md-4 text-center">
-										<div class="p-4 h-100">
-											<div class="text-success mb-3">
-												<i class="fas fa-shield-alt display-6"></i>
-											</div>
-											<h5 class="fw-bold mb-3">Devis Personnalisé</h5>
-											<p class="text-muted mb-0">Nos experts analyseront vos besoins pour vous proposer la meilleure couverture.</p>
-										</div>
-									</div>
-									
-									<div class="col-md-4 text-center">
-										<div class="p-4 h-100">
-											<div class="text-info mb-3">
-												<i class="fas fa-handshake display-6"></i>
-											</div>
-											<h5 class="fw-bold mb-3">Accompagnement</h5>
-											<p class="text-muted mb-0">Nous vous accompagnons dans toutes vos démarches d'assurance taxi.</p>
-										</div>
-									</div>
-								</div>
-							</div>
+		<div class="success-content">
+			<div class="success-icon">
+				<i class="fas fa-check-circle" style="font-size: 3rem; color: var(--text-dark);"></i>
+			</div>
+
+			<h1 class="success-title">Votre demande a été envoyée avec succès !</h1>
+
+			<p class="success-description text-dark">
+				Un conseiller vous contactera rapidement pour finaliser votre dossier et vous proposer les meilleures offres d'assurance taxi.
+			</p>
+
+			<a href="/" class="btn-home">
+				<i class="fas fa-home" style="margin-right: 0.5rem;"></i>
+				Revenir à l'accueil
+			</a>
+		</div>
+	</section>
+
+	<!-- Content Section -->
+	<section style="padding: 4rem 0; background-color: var(--white);">
+		<div class="container">
+			<div class="success-card fade-in-up">
+
+				<div class="info-grid">
+					<div class="info-card">
+						<div class="info-icon primary">
+							<i class="fas fa-clock"></i>
 						</div>
+						<h3 class="info-title">Réponse Rapide</h3>
+						<p class="info-description">
+							Un conseiller vous contactera dans les 24 heures suivant votre demande.
+						</p>
 					</div>
 
-					<!-- Contact Info -->
-					<div class="text-center mt-5">
-						<div class="card border-0 shadow-sm">
-							<div class="card-body p-4">
-								<h5 class="card-title fw-bold text-primary mb-3">
-									<i class="fas fa-phone me-2"></i>
-									Besoin d'aide immédiate ?
-								</h5>
-								<p class="card-text text-muted mb-3">
-									Notre équipe est disponible du lundi au vendredi de 9h à 18h
-								</p>
-								<a href="tel:0187660357" class="btn btn-outline-primary btn-lg rounded-pill">
-									<i class="fas fa-phone me-2"></i>
-									01 87 66 03 57
-								</a>
-							</div>
+					<div class="info-card">
+						<div class="info-icon success">
+							<i class="fas fa-shield-alt"></i>
 						</div>
+						<h3 class="info-title">Devis Personnalisé</h3>
+						<p class="info-description">
+							Nos experts analyseront vos besoins pour vous proposer la meilleure couverture.
+						</p>
 					</div>
+
+					<div class="info-card">
+						<div class="info-icon info">
+							<i class="fas fa-handshake"></i>
+						</div>
+						<h3 class="info-title">Accompagnement</h3>
+						<p class="info-description">
+							Nous vous accompagnons dans toutes vos démarches d'assurance taxi.
+						</p>
+					</div>
+				</div>
+
+				<!-- Contact Section -->
+				<div class="contact-section">
+					<h3 class="contact-title">
+						<i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+						Besoin d'aide immédiate ?
+					</h3>
+					<p class="contact-description">
+						Notre équipe est disponible du lundi au vendredi de 9h à 18h
+					</p>
+					<a href="tel:0187660357" class="btn-phone">
+						<i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+						01 87 66 03 57
+					</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Custom Styles -->
-	<style>
-		.hero-section {
-			min-height: 100vh;
-			display: flex;
-			align-items: center;
-			background: linear-gradient(135deg, #1a4b8c 0%, #2ecc71 100%);
-		}
-
-		.floating-icon {
-			animation: float 6s ease-in-out infinite;
-		}
-
-		@keyframes float {
-			0%, 100% { transform: translateY(0px) rotate(0deg); }
-			25% { transform: translateY(-20px) rotate(-5deg); }
-			50% { transform: translateY(-10px) rotate(0deg); }
-			75% { transform: translateY(-30px) rotate(5deg); }
-		}
-
-		.hover-lift {
-			transition: all 0.3s ease;
-		}
-
-		.hover-lift:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
-		}
-
-		.card {
-			transition: all 0.3s ease;
-		}
-
-		.card:hover {
-			transform: translateY(-5px);
-		}
-
-		/* Animation d'entrée */
-		.fade-in-up {
-			animation: fadeInUp 1s ease forwards;
-			opacity: 0;
-			transform: translateY(30px);
-		}
-
-		@keyframes fadeInUp {
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		/* Responsive adjustments */
-		@media (max-width: 768px) {
-			.display-4 {
-				font-size: 2rem;
-			}
-			
-			.hero-section {
-				padding-top: 2rem;
-				padding-bottom: 2rem;
-			}
-		}
-	</style>
-
 	<!-- Scripts -->
-	<script>
-		// Animation au chargement
-		document.addEventListener('DOMContentLoaded', function() {
-			// Ajouter la classe d'animation aux éléments
-			const elements = document.querySelectorAll('.card, .btn');
-			elements.forEach((el, index) => {
-				el.style.animationDelay = `${index * 0.2}s`;
-				el.classList.add('fade-in-up');
-			});
-		});
-
-		// Smooth scrolling pour les liens d'ancrage
-		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-			anchor.addEventListener('click', function (e) {
-				e.preventDefault();
-				const target = document.querySelector(this.getAttribute('href'));
-				if (target) {
-					target.scrollIntoView({behavior: 'smooth', block: 'start'});
-				}
-			});
-		});
+	 <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    // Animation au chargement
+	    const elements = document.querySelectorAll('.info-card');
+	    elements.forEach((el, index) => {
+	        setTimeout(() => {
+	            el.classList.add('fade-in-up');
+	        }, index * 200);
+	    });
+	});
+	
+	// Smooth scrolling pour les liens d'ancrage
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+	    anchor.addEventListener('click', function (e) {
+	        e.preventDefault();
+	        const target = document.querySelector(this.getAttribute('href'));
+	        if (target) {
+	            target.scrollIntoView({behavior: 'smooth', block: 'start'});
+	        }
+	    });
+	});
 	</script>
 
-	<!-- Cookie Banner -->
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			if (document.cookie.indexOf('aksamPerformance') < 0) {
-				// Créer le banner avec Bootstrap
-				const banner = document.createElement('div');
-				banner.className = 'position-fixed bottom-0 start-0 end-0 p-3';
-				banner.style.zIndex = '9999';
-				banner.innerHTML = `
-					<div class="container">
-						<div class="card border-0 shadow-lg">
-							<div class="card-body">
-								<div class="row align-items-center">
-									<div class="col-auto">
-										<div class="p-2 bg-warning bg-opacity-25 rounded-3">
-											<i class="fas fa-cookie-bite text-warning fs-4"></i>
-										</div>
-									</div>
-									<div class="col">
-										<h6 class="card-title fw-bold mb-1">Cookies et confidentialité</h6>
-										<p class="card-text small text-muted mb-0">
-											www.assurance-pour-taxi.fr utilise des cookies pour vous offrir le meilleur service.
-										</p>
-									</div>
-									<div class="col-auto">
-										<button onclick="acceptCookies()" class="btn btn-warning me-2">
-											<i class="fas fa-check me-1"></i>J'accepte
-										</button>
-										<button onclick="this.closest('.position-fixed').remove()" class="btn btn-outline-secondary">
-											Refuser
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				`;
-				document.body.appendChild(banner);
-			}
-		});
 
-		function acceptCookies() {
-			const expiryDate = new Date();
-			expiryDate.setMonth(expiryDate.getMonth() + 1);
-			document.cookie = 'aksamPerformance=1; path=/; expires=' + expiryDate.toGMTString();
-			document.querySelector('.position-fixed.bottom-0').remove();
-		}
-	</script>
-
-	<!-- JSON-LD (inchangé) -->
-	<script type="application/ld+json">
-		{
-			"@context": "http://schema.org",
-			"@type": "LocalBusiness",
-			"name": "Aksam Assurance",
-			"image": "assets/img/favicon.png",
-			"telephone": "01 82 83 48 00",
-			"address": {
-				"@type": "PostalAddress",
-				"streetAddress": "10 rue de Penthièvre",
-				"addressCountry": "FR",
-				"addressLocality": "PARIS",
-				"postalCode": "75008"
-			},
-			"url": "https://www.assurance-pour-taxi.fr",
-			"priceRange": "€€",
-			"openingHours": "Mo-Fr 09:00-18:00",
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"telephone": "+33 1 82 83 48 00",
-				"contactType": "Customer Service",
-				"availableLanguage": ["French", "English"]
-			}
-		}
-	</script>
 {% endblock %}

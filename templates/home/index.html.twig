@@ -5,6 +5,12 @@
 
 {% block body %}
 
+	{% for message in app.flashes('success') %}
+		<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+			{{ message }}
+		</div>
+	{% endfor %}
+
 
 	<!-- Form Section -->
 	<section class="form-section" id="formulaire">
@@ -39,6 +45,27 @@
 						Étape 2<span class="step-description">: Votre tarif</span>
 					</div>
 				</div>
+				{% if not form.vars.valid %}
+					<div class="error-messages">
+
+						<div>
+
+							<ul>
+								{% for child in form.children %}
+									{% if child.vars.errors is defined %}
+										{% for error in child.vars.errors %}
+
+											<li>
+												<i class="fas fa-exclamation-triangle"></i>
+												{{ error.message }}</li>
+
+										{% endfor %}
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				{% endif %}
 
 
 				<div class="form-body">
@@ -135,13 +162,20 @@
 						<div class="form-group">
 							{{ form_label(form.tel, 'Téléphone') }}
 							{{ form_widget(form.tel, {
-                                'attr': {
-                                    'class': 'form-control',
-                                    'placeholder': '01 04 03 00 00'
-                                }
-                            }) }}
-							{{ form_errors(form.tel) }}
+        'attr': {
+            'class': 'form-control' ~ (form.tel.vars.errors|length > 0 ? ' is-invalid' : ''),
+            'placeholder': '01 23 45 67 89'
+        }
+    }) }}
+							{% if form.tel.vars.errors|length > 0 %}
+								<div class="invalid-feedback">
+									{% for error in form.tel.vars.errors %}
+										{{ error.message }}
+									{% endfor %}
+								</div>
+							{% endif %}
 						</div>
+
 
 						<div class="form-group">
 							{{ form_label(form.email, 'Email') }}
@@ -183,229 +217,363 @@
 			</div>
 		</div>
 	</section>
-	 <script>
-																																												document.addEventListener('DOMContentLoaded', function() {
-																																			    const benificField = document.getElementById('benificaire');
-																																			    const nbrBenificGroup = document.getElementById('nbrBenificGroup');
-																																			    const nbrBenificField = document.getElementById('nbrBenific');
-																																			    const dateFields = document.querySelectorAll('.date-field');
-																																			    
-																																			    // Fonction pour vérifier si la valeur indique "Oui"
-																																			    function isYes(value) {
-																																			        if (!value) return false;
-																																			        const val = value.toString().trim().toLowerCase();
-																																			        return (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes');
-																																			    }
-																																			    
-																																			    // Gestion de l'affichage du champ nombre de bénéficiaires
-																																			    function toggleBenificFields() {
-																																			        let value;
-																																			        
-																																			        if (benificField.tagName === 'SELECT') {
-																																			            value = benificField.options[benificField.selectedIndex].value;
-																																			        } else if (benificField.type === 'radio') {
-																																			            const selected = document.querySelector('input[name="' + benificField.name + '"]:checked');
-																																			            value = selected ? selected.value : '';
-																																			        } else {
-																																			            value = benificField.value;
-																																			        }
-																																			        
-																																			        if (isYes(value)) {
-																																			            nbrBenificGroup.style.display = 'block';
-																																			            updateDateFields(); // Afficher les champs de date si nécessaire
-																																			        } else {
-																																			            nbrBenificGroup.style.display = 'none';
-																																			            // Cacher tous les champs de date
-																																			            dateFields.forEach(field => field.style.display = 'none');
-																																			        }
-																																			    }
-																																			    
-																																			    // Gestion de l'affichage des champs de date en fonction du nombre choisi
-																																			    function updateDateFields() {
-																																			        const nbrValue = nbrBenificField ? parseInt(nbrBenificField.value) : 0;
-																																			        
-																																			        // Cacher tous les champs de date d'abord
-																																			        dateFields.forEach((field, index) => {
-																																			            field.style.display = 'none';
-																																			        });
-																																			        
-																																			        // Afficher le nombre requis de champs de date
-																																			        for (let i = 1; i <= nbrValue; i++) {
-																																			            const dateField = document.getElementById('dateField' + i);
-																																			            if (dateField) {
-																																			                dateField.style.display = 'block';
-																																			            }
-																																			        }
-																																			    }
-																																			    
-																																			    // Écouteurs d'événements
-																																			    if (benificField) {
-																																			        if (benificField.tagName === 'SELECT' || benificField.type === 'text') {
-																																			            benificField.addEventListener('change', toggleBenificFields);
-																																			        } else if (benificField.type === 'radio') {
-																																			            document.querySelectorAll('input[name="' + benificField.name + '"]').forEach(radio => {
-																																			                radio.addEventListener('change', toggleBenificFields);
-																																			            });
-																																			        }
-																																			    }
-																																			    
-																																			    if (nbrBenificField) {
-																																			        nbrBenificField.addEventListener('change', updateDateFields);
-																																			    }
-																																			    
-																																			    // Initialisation au chargement de la page
-																																			    toggleBenificFields();
-																																			});
-																																			
-																						 
-																							
-																																																																									
-																																																																									     
-																																																																										     // Form steps functionality
-																																																																								  // Form steps functionality
-																																																								    const step1 = document.getElementById("step1");
-																																																								    const step2 = document.getElementById("step2");
-																																																								    const steps = document.querySelectorAll(".step");
-																																																								    const nextStep1Btn = document.getElementById("next-step1");
-																																																								    const prevStep2Btn = document.getElementById("prev-step2");
-																																																								
-																																																								    nextStep1Btn.addEventListener("click", function () {
-																																																								        // Champs à vérifier dans l’étape 1
-																																																								        const requiredFields = [
-																																																								            document.querySelector('[name$="[brithdate]"]'),
-																																																								            document.querySelector('[name$="[postal]"]'),
-																																																								            document.querySelector('[name$="[regimSocial]"]'),
-																																																								            document.querySelector('[name$="[benificaire]"]')
-																																																								        ];
-																																																								
-																																																								        let valid = true;
-																																																								
-																																																								        requiredFields.forEach(field => {
-																																																								            if (field) {
-																																																								                // On nettoie les anciens styles
-																																																								                field.classList.remove("is-invalid");
-																																																								
-																																																								                if (!field.value || field.value.trim() === "") {
-																																																								                    field.classList.add("is-invalid"); // Ajoute une bordure rouge
-																																																								                    valid = false;
-																																																								                }
-																																																								            }
-																																																								        });
-																																																								
-																																																								        // Si le bénéficiaire est "oui", vérifier aussi nbrBenific
-																																																								        const benificField = document.querySelector('[name$="[benificaire]"]');
-																																																								        const nbrBenificField = document.querySelector('[name$="[nbrBenific]"]');
-																																																								        if (benificField && (benificField.value.toLowerCase() === "oui" || benificField.value === "1")) {
-																																																								            if (nbrBenificField && (!nbrBenificField.value || nbrBenificField.value.trim() === "")) {
-																																																								                nbrBenificField.classList.add("is-invalid");
-																																																								                valid = false;
-																																																								            }
-																																																								        }
-																																																								
-																																																								        if (!valid) {
-																																																								            alert("Merci de remplir tous les champs obligatoires avant de continuer.");
-																																																								            return;  
-																																																								        }
-																																																								
-																																																								        // Si tout est bon, on passe à l’étape 2
-																																																								        step1.classList.remove("active");
-																																																								        step2.classList.add("active");
-																																																								
-																																																								        steps[0].classList.remove("active");
-																																																								        steps[1].classList.add("active");
-																																																								
-																																																								        window.scrollTo({
-																																																								            top: document.getElementById("formulaire").offsetTop - 70,
-																																																								            behavior: "smooth",
-																																																								        });
-																																																								    });
-																																																								
-																																																								    prevStep2Btn.addEventListener("click", function () {
-																																																								        step2.classList.remove("active");
-																																																								        step1.classList.add("active");
-																																																								
-																																																								        steps[1].classList.remove("active");
-																																																								        steps[0].classList.add("active");
-																																																								
-																																																								        window.scrollTo({
-																																																								            top: document.getElementById("formulaire").offsetTop - 70,
-																																																								            behavior: "smooth",
-																																																								        });
-																																																								    });
-																																																																																																																									document.addEventListener('DOMContentLoaded', function () {
-																																																																																																																									    const nbrBenificGroup = document.getElementById('nbrBenificGroup');
-																																																																																																																									
-																																																																																																																									    // 1) Essayer de récupérer l'élément par id (si form_row a appliqué l'id)
-																																																																																																																									    let benificField = document.getElementById('benificaire');
-																																																																																																																									
-																																																																																																																									    // 2) Si pas trouvé, chercher par name (utile si ChoiceType expanded ou nom auto-généré)
-																																																																																																																									    if (!benificField) {
-																																																																																																																									        benificField = document.querySelector('[name$="[benificaire]"]');
-																																																																																																																									    }
-																																																																																																																									
-																																																																																																																									    // 3) Si ce sont des radios (expanded), on gère différemment
-																																																																																																																									    const radioNodes = document.querySelectorAll('input[type="radio"][name$="[benificaire]"]');
-																																																																																																																									    if (radioNodes && radioNodes.length > 0) {
-																																																																																																																									        const handleRadios = () => {
-																																																																																																																									            const checked = document.querySelector('input[type="radio"][name$="[benificaire]"]:checked');
-																																																																																																																									            if (!checked) {
-																																																																																																																									                nbrBenificGroup.style.display = 'none';
-																																																																																																																									                return;
-																																																																																																																									            }
-																																																																																																																									            const val = (checked.value || '').toString().trim().toLowerCase();
-																																																																																																																									            if (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes') {
-																																																																																																																									                nbrBenificGroup.style.display = 'block';
-																																																																																																																									            } else {
-																																																																																																																									                nbrBenificGroup.style.display = 'none';
-																																																																																																																									            }
-																																																																																																																									        };
-																																																																																																																									        radioNodes.forEach(r => r.addEventListener('change', handleRadios));
-																																																																																																																									        handleRadios(); // initial state
-																																																																																																																									        return;
-																																																																																																																									    }
-																																																																																																																									
-																																																																																																																									    // Si on a trouvé un select / input simple
-																																																																																																																									    if (!benificField) {
-																																																																																																																									        // impossible de localiser le champ : on cache et on log pour debug
-																																																																																																																									        console.warn('Champ benificaire introuvable — vérifie le name/id rendu du formulaire.');
-																																																																																																																									        nbrBenificGroup.style.display = 'none';
-																																																																																																																									        return;
-																																																																																																																									    }
-																																																																																																																									
-																																																																																																																									    function isYes(field) {
-																																																																																																																									        // valeur (value) ou texte de l'option sélectionnée (pour les <select>)
-																																																																																																																									        let val = '';
-																																																																																																																									        if (field.tagName === 'SELECT') {
-																																																																																																																									            const opt = field.options[field.selectedIndex];
-																																																																																																																									            val = (opt && (opt.value || opt.text)) || '';
-																																																																																																																									        } else {
-																																																																																																																									            val = field.value || '';
-																																																																																																																									        }
-																																																																																																																									        val = val.toString().trim().toLowerCase();
-																																																																																																																									        return (val === 'oui' || val === 'o' || val === '1' || val === 'true' || val === 'yes');
-																																																																																																																									    }
-																																																																																																																									
-																																																																																																																									    function toggle() {
-																																																																																																																									        nbrBenificGroup.style.display = isYes(benificField) ? 'block' : 'none';
-																																																																																																																									    }
-																																																																																																																									
-																																																																																																																									    // initial
-																																																																																																																									    toggle();
-																																																																																																																									
-																																																																																																																									    // écouteur
-																																																																																																																									    benificField.addEventListener('change', toggle);
-																																																																																																																									});
-																																																																																																										                                                            
-																																																																																																																 
-																																																																																																																	                                
-																																																																																																																									</script>
 
-	<style>
-		/* Style pour montrer les champs invalides */
-		.is-invalid {
-			border: 2px solid red !important;
-			background-color: #ffe6e6;
-		}
-	</style>
+	 <script>
+																document.addEventListener('DOMContentLoaded', function() {
+																    
+																    // 1. Configuration du viewport pour Safari Mobile
+																    function initSafariMobileFix() {
+																        const isSafariMobile = /Safari/.test(navigator.userAgent) && 
+																                              /Mobile/.test(navigator.userAgent) && 
+																                              !/Chrome/.test(navigator.userAgent);
+																        
+																        if (isSafariMobile) {
+																            console.log('Safari Mobile détecté - Application des correctifs légers');
+																            
+																            // Variable CSS pour la hauteur viewport
+																            function setVH() {
+																                let vh = window.innerHeight * 0.01;
+																                document.documentElement.style.setProperty('--vh-unit', `${vh}px`);
+																            }
+																            
+																            // Configuration initiale
+																            setVH();
+																            document.body.classList.add('safari-mobile-device');
+																            
+																            // Mise à jour lors des changements
+																            window.addEventListener('resize', () => {
+																                clearTimeout(window.vhTimeout);
+																                window.vhTimeout = setTimeout(setVH, 100);
+																            });
+																            
+																            window.addEventListener('orientationchange', () => {
+																                setTimeout(setVH, 300);
+																            });
+																        }
+																    }
+																    
+																    // 2. Gestion des bénéficiaires (version simplifiée et robuste)
+																    function initBeneficiaryLogic() {
+																        // Recherche robuste des éléments
+																        const benificGroup = document.getElementById('nbrBenificGroup');
+																        const dateFields = document.querySelectorAll('.date-field');
+																        
+																        // Plusieurs méthodes de recherche pour le champ bénéficiaire
+																        let benificField = document.getElementById('benificaire') || 
+																                          document.querySelector('[name$="[benificaire]"]') ||
+																                          document.querySelector('select[name*="benificaire"]');
+																        
+																        let nbrBenificField = document.getElementById('nbrBenific') || 
+																                             document.querySelector('[name$="[nbrBenific]"]');
+																        
+																        if (!benificField || !benificGroup) {
+																            console.warn('Éléments bénéficiaires non trouvés - fonctionnalité désactivée');
+																            return;
+																        }
+																        
+																        // Fonction simple pour vérifier "Oui"
+																        function isYes(value) {
+																            return value && ['oui', 'o', '1', 'true', 'yes'].includes(value.toString().toLowerCase().trim());
+																        }
+																        
+																        // Fonction pour obtenir la valeur
+																        function getBeneficiaryValue() {
+																            if (benificField.tagName === 'SELECT') {
+																                return benificField.value;
+																            }
+																            if (benificField.type === 'radio') {
+																                const checked = document.querySelector(`input[name="${benificField.name}"]:checked`);
+																                return checked ? checked.value : '';
+																            }
+																            return benificField.value || '';
+																        }
+																        
+																        // Fonction principale de toggle
+																        function toggleBeneficiaryFields() {
+																            const value = getBeneficiaryValue();
+																            const showGroup = isYes(value);
+																            
+																            // Animation CSS smooth
+																            benificGroup.style.transition = 'all 0.3s ease';
+																            benificGroup.style.display = showGroup ? 'block' : 'none';
+																            
+																            if (showGroup) {
+																                benificGroup.style.opacity = '0';
+																                requestAnimationFrame(() => {
+																                    benificGroup.style.opacity = '1';
+																                });
+																                updateDateFields();
+																            } else {
+																                // Cacher tous les champs de date
+																                dateFields.forEach(field => {
+																                    field.style.display = 'none';
+																                });
+																            }
+																        }
+																        
+																        // Fonction pour les champs de date
+																        function updateDateFields() {
+																            if (!nbrBenificField) return;
+																            
+																            const nbrValue = parseInt(nbrBenificField.value) || 0;
+																            
+																            // Animation douce
+																            dateFields.forEach((field, index) => {
+																                const shouldShow = index < nbrValue;
+																                field.style.transition = 'all 0.3s ease';
+																                field.style.display = shouldShow ? 'block' : 'none';
+																                
+																                if (shouldShow) {
+																                    field.style.opacity = '0';
+																                    requestAnimationFrame(() => {
+																                        field.style.opacity = '1';
+																                    });
+																                }
+																            });
+																        }
+																        
+																        // Écouteurs d'événements unifiés
+																        function addChangeListener(element, callback) {
+																            ['change', 'input'].forEach(event => {
+																                element.addEventListener(event, callback);
+																            });
+																        }
+																        
+																        // Configuration des écouteurs
+																        if (benificField.type === 'radio') {
+																            document.querySelectorAll(`input[name="${benificField.name}"]`)
+																                   .forEach(radio => addChangeListener(radio, toggleBeneficiaryFields));
+																        } else {
+																            addChangeListener(benificField, toggleBeneficiaryFields);
+																        }
+																        
+																        if (nbrBenificField) {
+																            addChangeListener(nbrBenificField, updateDateFields);
+																        }
+																        
+																        // Initialisation
+																        toggleBeneficiaryFields();
+																    }
+																    
+																    // 3. Navigation entre étapes (version robuste)
+																    function initStepNavigation() {
+																        const step1 = document.getElementById("step1");
+																        const step2 = document.getElementById("step2");
+																        const steps = document.querySelectorAll(".step");
+																        const nextBtn = document.getElementById("next-step1");
+																        const prevBtn = document.getElementById("prev-step2");
+																        
+																        if (!nextBtn || !prevBtn || !step1 || !step2) {
+																            console.warn('Éléments de navigation non trouvés');
+																            return;
+																        }
+																        
+																        // Validation des champs
+																        function validateStep1() {
+																            const requiredFields = [
+																                'brithdate', 'postal', 'regimSocial', 'benificaire'
+																            ].map(name => document.querySelector(`[name$="[${name}]"]`))
+																             .filter(field => field !== null);
+																            
+																            let isValid = true;
+																            
+																            requiredFields.forEach(field => {
+																                field.classList.remove("is-invalid");
+																                
+																                if (!field.value || field.value.trim() === "") {
+																                    field.classList.add("is-invalid");
+																                    isValid = false;
+																                }
+																            });
+																            
+																            // Validation spéciale pour nbrBenific si nécessaire
+																            const benificField = document.querySelector('[name$="[benificaire]"]');
+																            const nbrField = document.querySelector('[name$="[nbrBenific]"]');
+																            
+																            if (benificField && nbrField && 
+																                ['oui', '1'].includes(benificField.value.toLowerCase()) &&
+																                (!nbrField.value || nbrField.value.trim() === "")) {
+																                nbrField.classList.add("is-invalid");
+																                isValid = false;
+																            }
+																            
+																            return isValid;
+																        }
+																        
+																        // Animation de transition douce
+																        function transitionToStep(fromStep, toStep, fromStepIndicator, toStepIndicator) {
+																            // Animation sortante
+																            fromStep.style.opacity = '0';
+																            fromStep.style.transform = 'translateX(-20px)';
+																            
+																            setTimeout(() => {
+																                fromStep.classList.remove("active");
+																                toStep.classList.add("active");
+																                
+																                // Animation entrante
+																                toStep.style.opacity = '0';
+																                toStep.style.transform = 'translateX(20px)';
+																                
+																                requestAnimationFrame(() => {
+																                    toStep.style.transition = 'all 0.3s ease';
+																                    toStep.style.opacity = '1';
+																                    toStep.style.transform = 'translateX(0)';
+																                });
+																                
+																                // Mise à jour des indicateurs d'étapes
+																                fromStepIndicator.classList.remove("active");
+																                toStepIndicator.classList.add("active");
+																                
+																                // Scroll doux vers le formulaire
+																                const formulaire = document.getElementById("formulaire");
+																                if (formulaire) {
+																                    formulaire.scrollIntoView({ 
+																                        behavior: 'smooth', 
+																                        block: 'start',
+																                        inline: 'nearest'
+																                    });
+																                }
+																            }, 150);
+																        }
+																        
+																        // Gestionnaires d'événements
+																        nextBtn.addEventListener("click", function() {
+																            if (!validateStep1()) {
+																                // Feedback utilisateur plus doux
+																                const firstInvalid = document.querySelector('.is-invalid');
+																                if (firstInvalid) {
+																                    firstInvalid.focus();
+																                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+																                }
+																                
+																                // Message d'erreur discret
+																                showMessage("Merci de remplir tous les champs obligatoires", "warning");
+																                return;
+																            }
+																            
+																            transitionToStep(step1, step2, steps[0], steps[1]);
+																        });
+																        
+																        prevBtn.addEventListener("click", function() {
+																            transitionToStep(step2, step1, steps[1], steps[0]);
+																        });
+																    }
+																    
+																    // 4. Fonction utilitaire pour les messages
+																    function showMessage(text, type = "info") {
+																        // Création d'un toast simple
+																        const toast = document.createElement('div');
+																        toast.className = `toast toast-${type}`;
+																        toast.style.cssText = `
+																            position: fixed;
+																            top: 20px;
+																            right: 20px;
+																            padding: 1rem 1.5rem;
+																            background: ${type === 'warning' ? '#fbbf24' : '#10b981'};
+																            color: white;
+																            border-radius: 8px;
+																            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+																            z-index: 9999;
+																            transform: translateX(400px);
+																            transition: transform 0.3s ease;
+																            font-weight: 500;
+																        `;
+																        toast.textContent = text;
+																        
+																        document.body.appendChild(toast);
+																        
+																        // Animation d'entrée
+																        requestAnimationFrame(() => {
+																            toast.style.transform = 'translateX(0)';
+																        });
+																        
+																        // Suppression automatique
+																        setTimeout(() => {
+																            toast.style.transform = 'translateX(400px)';
+																            setTimeout(() => document.body.removeChild(toast), 300);
+																        }, 3000);
+																    }
+																    
+																    // 5. Amélioration des inputs pour Safari Mobile
+																    function enhanceInputs() {
+																        const inputs = document.querySelectorAll('input, select, textarea');
+																        
+																        inputs.forEach(input => {
+																            // Classe utilitaire pour la stabilité
+																            input.classList.add('safari-stable', 'no-zoom');
+																            
+																            // Empêcher les comportements indésirables
+																            input.addEventListener('focus', function() {
+																                this.style.fontSize = '16px';
+																                this.style.webkitTransform = 'translateZ(0)';
+																            });
+																            
+																            // Gestion douce du blur
+																            input.addEventListener('blur', function() {
+																                // Petite pause avant nettoyage
+																                setTimeout(() => {
+																                    this.classList.remove('is-invalid');
+																                }, 100);
+																            });
+																        });
+																    }
+																    
+																    // Initialisation globale
+																    try {
+																        initSafariMobileFix();
+																        initBeneficiaryLogic();
+																        initStepNavigation();
+																        enhanceInputs();
+																        
+																        console.log('Formulaire initialisé avec succès');
+																    } catch (error) {
+																        console.error('Erreur lors de l\'initialisation:', error);
+																        // Fallback gracieux
+																        document.body.classList.add('form-fallback-mode');
+																    }
+																});
+																
+																// CSS additionnel injecté via JavaScript pour une compatibilité maximale
+																const additionalStyles = `
+																<style>
+																.toast {
+																    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+																}
+																
+																.safari-mobile-device .form-container {
+																    transform: translate3d(0, 0, 0);
+																    -webkit-transform: translate3d(0, 0, 0);
+																}
+																
+																.form-fallback-mode .form-step {
+																    display: block !important;
+																    opacity: 1 !important;
+																}
+																
+																.form-fallback-mode .form-step:not(.active) {
+																    display: none !important;
+																}
+																
+																@supports (-webkit-touch-callout: none) {
+																    .safari-stable {
+																        -webkit-transform: translateZ(0) !important;
+																        transform: translateZ(0) !important;
+																    }
+																    
+																    .no-zoom {
+																        font-size: 16px !important;
+																        -webkit-text-size-adjust: 100% !important;
+																    }
+																}
+																</style>
+																`;
+																
+																// Injection du CSS additionnel
+																document.head.insertAdjacentHTML('beforeend', additionalStyles);
+												
+															
+															
+																</script>
+
 
 {% endblock %}

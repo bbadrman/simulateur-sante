@@ -1,589 +1,327 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Politique de confidentialité - Assurance sante
+{% block title %}Mentions légales - Assurance santé
 {% endblock %}
 
 {% block body %}
 	{% for message in app.flashes('success') %}
-		<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+		<div style="background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 5px; margin-bottom: 1rem;">
 			{{ message }}
 		</div>
 	{% endfor %}
 
 
 	<!-- Hero Section -->
-	<section
-		class="py-8 lg:py-6 bg-gradient-to-br from-light via-surfaceHover to-light hero-pattern relative overflow-hidden">
-		<!-- Background decoration -->
-		<div class="absolute inset-0 scanlines-bg opacity-30"></div>
-		<div class="absolute top-5 left-5 floating-animation">
-			<i class="fas fa-gavel text-yellow-600 text-4xl opacity-30"></i>
-		</div>
-		<div class="absolute bottom-5 right-5 floating-animation" style="animation-delay: -2s;">
-			<i class="fas fa-balance-scale text-yellow-700 text-5xl opacity-25"></i>
-		</div>
-
-		<div class="container mx-auto px-4 relative z-10">
-			<div class="text-center">
-				<div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-					<i class="fas fa-file-contract text-2xl text-dark"></i>
+	<section class="mentions-hero">
+		<div class="container">
+			<div style="max-width: 800px; margin: 0 auto;">
+				<div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 20px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center;">
+					<i class="fas fa-file-contract" style="font-size: 2rem; color: var(--white);"></i>
 				</div>
-				<h1 class="text-4xl lg:text-3xl font-bold text-gradient mb-4">Politique de confidentialité</h1>
-				<div class="w-20 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto rounded-full"></div>
+				<h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Mentions légales</h1>
+				<div style="width: 100px; height: 4px; background: var(--primary-green); margin: 0 auto; border-radius: 2px;"></div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Content Section -->
+	<section class="mentions-content">
+		<div class="container">
+			<div
+				style="max-width: 1200px; margin: 0 auto;">
 
-	<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
-		<div class="bg-white rounded-xl shadow-xl p-8">
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient mb-6">
-				Politique de confidentialité
-			</h2>
-			<p class="text-base text-gray-700 mb-8">
-				Ce document explique, de façon claire et transparente, comment nous
-																																																												          utilisons et traitons vos données personnelles, pour que vous puissiez
-																																																												          comprendre facilement notre démarche. De plus, nous vous indiquons
-																																																												          comment nous contacter si vous avez des questions sur vos données
-																																																												          personnelles, et nous serions d'ailleurs heureux de pouvoir vous
-																																																												          éclairer. Veuillez également lire nos Informations sur les cookies qui
-																																																												          détaillent comment Aksam Assurances utilise les cookies et d'autres
-																																																												          technologies similaires. Identité du responsable de traitement. Le
-																																																												          responsable des traitements des données des utilisateurs collectées
-																																																												          via le SITE est la Société AKSAM Assurances SARL, au capital de 10
-																																																												          000,00 euros, immatriculée au RCS de Paris sous le n°840 653 463, dont
-																																																												          le siège social 10 Rue de Penthièvre 75008 Paris. France (Cf. mention
-																																																												          légales).
-			</p>
-
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient  mb-6 mt-12">
-				Quels types de données personnelles sont recueillis par AKSAM
-																																																												          ASSURANCES ?
-			</h2>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4">
-				Collecte & traitement des données
-			</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Données personnelles que vous nous donnez
-			</p>
-			<p class="text-base text-gray-700 mb-8">
-				Dans le cadre de l'exploitation de notre SITE, nous sommes
-																																																												          susceptibles de collecter des données à caractère personnel vous
-																																																												          concernant. Vos données sont traitées conformément aux finalités
-																																																												          prévues lors de la collecte. En particulier, nous collectons les
-																																																												          données que vous acceptez de nous communiquer :
-			</p>
-			<ul class="list-disc list-inside space-y-2 text-base text-gray-700 mb-8">
-				<li>Lors de votre visite et de votre navigation sur notre SITE.</li>
-				<li>
-					Via les différents formulaires de demandes de devis que vous
-																																																																											            remplissez sur notre SITE.
-				</li>
-			</ul>
-			<p class="text-base text-gray-700 mb-8">
-				Quel que soit le mode de collecte, nous nous engageons à vous informer
-																																																												          des finalités du traitement, du caractère obligatoire ou facultatif
-																																																												          des réponses à apporter, des conséquences éventuelles, à votre égard,
-																																																												          d'un défaut de réponse, des destinataires des données, de l'existence
-																																																												          et des modalités d'exercice de ses droits d'accès, de rectification et
-																																																												          d'opposition au traitement de vos données. Lorsque cela est nécessaire
-																																																												          au regard de la Loi Informatique et Libertés, nous nous engageons,
-																																																												          selon les cas, à recueillir votre consentement et/ou à vous permettre
-																																																												          de vous opposer à l'utilisation de vos données pour certaines
-																																																												          finalités. Les données que nous sommes susceptibles de collecter pour
-																																																												          la réalisation des finalités décrites dans l'article ci-après de la
-																																																												          présente politique de confidentialité concernent :
-			</p>
-			<ul class="list-disc list-inside space-y-2 text-base text-gray-700 mb-8">
-				<li>
-					Toutes les données d'identification collectées via nos formulaires
-																																																																											            d'assurance (civilité, nom, prénom, coordonnées postales,
-																																																																											            téléphoniques et électroniques, marque de véhicule, profil
-																																																																											            conducteur,) aux fins de vous établir un devis en assurance voiture
-																																																																											            particulier, ou assurance véhicule professionnel, ou assurance
-																																																																											            décennale, ou assurance santé.
-				</li>
-				<li>
-					Via les différents formulaires de demandes de devis que vous
-																																																																											            remplissez sur notre SITE.
-				</li>
-				<li>
-					Des données relatives au suivi de la relation commerciale : numéro
-																																																																											            de client, numéro de contrat, factures, demandes d'information,
-																																																																											            historique des échanges avec nos services : clientèle et gestion.
-				</li>
-				<li>Des données de connexion (adresses IP, logs de connexion)</li>
-				<li>
-					Des données relatives aux moyens de paiement en cas de prise de
-																																																																											            garantie (RIB, numéro de carte bancaire, date de fin de validité de
-																																																																											            la carte bancaire). Les données relatives aux cartes bancaires sont
-																																																																											            supprimées une fois la transaction réalisée, c'est-à-dire dès le
-																																																																											            paiement effectif de la commande.
-				</li>
-				<li>
-					Des données relatives à la souscription d'un contrat en ligne et au
-																																																																											            contrat en découlant.
-				</li>
-				<li>
-					Vos permis de conduire et cartes grises pour les contrats
-																																																																											            d'assurance véhicule et deux-roues.
-				</li>
-				<li>
-					Des données relatives à vos antécédents de conducteur (Bonus/malus,
-																																																																											            existence de sinistres, de suspension ou annulation de permis de
-																																																																											            conduire, de condamnation en relation avec la conduite d'un
-																																																																											            véhicule, de résiliation d'une assurance pour conduite sous
-																																																																											            l'emprise d'un état alcoolique ou sous stupéfiant…).
-				</li>
-				<li>
-					Des données relatives à de sinistres ou à l'existence d'hypothèques
-																																																																											            sur les biens immobiliers à assurer.
-				</li>
-				<li>
-					Des données relatives au règlement des factures : modalités de
-																																																																											            règlement, remises consenties, reçus, impayés, …
-				</li>
-			</ul>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4 mt-12">
-				Données personnelles que nous recueillons automatiquement
-			</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Lorsque vous vous rendez sur notre site Internet, même si vous
-																																																												          n'effectuez pas une demande de devis, il se peut que nous collectons
-																																																												          automatiquement certaines informations telles que votre adresse IP, la
-																																																												          date et l'heure de votre connexion à nos services, le matériel,
-																																																												          logiciel ou navigateur Internet que vous utilisez, ainsi que les
-																																																												          données sur le système d'exploitation de votre ordinateur comme les
-																																																												          différentes versions de l'application et vos paramètres de langue. Il
-																																																												          se peut également que nous recueillons des données sur les clics ainsi
-																																																												          que sur les pages que vous avez visitées. Si vous utilisez un appareil
-																																																												          mobile, il se peut que des données identifiant votre appareil, vos
-																																																												          paramètres et caractéristiques, votre emplacement, les crashes de
-																																																												          l'application et d'autres activités du système soient également
-																																																												          recueillis.
-			</p>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4 mt-12">
-				Données personnelles que nous recevons d'autres sources
-			</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Nous ne disposons pas seulement des informations que vous nous donnez.
-																																																												          Il est possible que nous recevions également des informations sur vous
-																																																												          de la part d'autres sources tel que pages blanche ou pages jaunes.
-																																																												          Nous intégrons des services d'appel sur nos sites web pour vous
-																																																												          permettre de contacter les conseillers de la société. Dans ce cas-là,
-																																																												          nous recevons des métadonnées concernant ces appels (la date et la
-																																																												          durée de l'appel).
-			</p>
-
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient  mb-6 mt-12">
-				Pourquoi AKSAM ASSURANCES recueille et utilise vos données
-																																																												          personnelles ?
-			</h2>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4">
-				Finalités des traitements
-			</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Vos différentes données sont collectées pour assurer :
-			</p>
-			<ul class="list-disc list-inside space-y-2 text-base text-gray-700 mb-8">
-				<li>
-					Le bon fonctionnement et l'amélioration permanente du SITE, de ses
-																																																																											            services et de ses fonctionnalités,
-				</li>
-				<li>
-					Le suivi de notre relation tel que la réalisation d'enquêtes de
-																																																																											            satisfaction, ou le regroupement de vos contrats,
-				</li>
-				<li>La gestion de nos opérations de prospection,</li>
-				<li>
-					L'élaboration et la délivrance de devis adaptés à votre situation et
-																																																																											            à vos besoins,
-				</li>
-				<li>
-					La passation, la gestion et l'exécution des contrats d'assurance,
-				</li>
-				<li>
-					La gestion d'éventuelles difficultés et contentieux liés à la
-																																																																											            passation, la gestion et l'exécution des contrats d'assurance,
-				</li>
-				<li>
-					La gestion de vos demandes de droit d'accès, de rectification et
-																																																																											            d'opposition,
-				</li>
-				<li>La gestion des impayés et du contentieux,</li>
-				<li>
-					L'élaboration de statistiques destinées à améliorer le
-																																																																											            fonctionnement du SITE et la qualité de nos services,
-				</li>
-			</ul>
-			<p class="text-base text-gray-700 mb-8">
-				Nous serons également susceptibles d'utiliser ces données à des fins
-																																																												          légales et/ou règlementaires. En tout état de cause, nous nous
-																																																												          engageons à traiter l'ensemble des données collectées de manière
-																																																												          conforme à la loi n°78-17 du 6 janvier 1978 modifiée et aux normes
-																																																												          simplifiées et autorisations uniques édictées par la CNIL.
-			</p>
-
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient  mb-6 mt-12">
-				Comment AKSAM ASSURANCES traite vos données personnelles ?
-			</h2>
-			<p class="text-base text-gray-700 mb-8">
-				AKSAM ASSURANCES récupère vos principales données pour les envoyer à
-																																																												          la compagnie d'assurance la plus adapté à vos besoins de tarification.
-																																																												          Les destinataires de vos données personnelles sont nos partenaires :
-																																																												          en principe les compagnies d'assurance, toute autre personne
-																																																												          intervenant au contrat ou dans la gestion d'un sinistre en France.
-			</p>
-
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient  mb-6 mt-12">
-				OÙ stockons-nous vos données personnelles ?
-			</h2>
-			<p class="text-base text-gray-700 mb-8">
-				Vos données personnelles sont stockées dans nos bases de données
-																																																												          stockées sur des serveurs situés au ETATS UNIS.
-			</p>
-
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient  mb-6 mt-12">
-				Vos données personnelles sont –elles conservés ?
-			</h2>
-			<p class="text-base text-gray-700 mb-8">
-				Nous avons pour objectif de toujours conserver vos données
-																																																												          personnelles de la manière la plus sûre et la plus sécurisée, et
-																																																												          uniquement pendant la durée nécessaire à la réalisation de la finalité
-																																																												          poursuivie par le traitement des données nécessaires pour la
-																																																												          réalisation et le suivi de vos contrats. Ainsi, le tableau ci-dessous
-																																																												          illustre un aperçu général sur la durée de vie (légale) des principaux
-																																																												          documents :
-			</p>
-
-			<div class="overflow-x-auto mb-8">
-				<table class="min-w-full bg-white border border-gray-200 rounded-xl shadow-sm">
-					<thead>
-						<tr>
-							<th class="py-3 px-4 bg-gray-100 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-200 rounded-tl-xl">
-								DOCUMENTS
-							</th>
-							<th class="py-3 px-4 bg-gray-100 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-200 rounded-tr-xl">
-								DELAI DE CONSERVATION
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Contrat : dispositions générales et dispositions particulières
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								5 ans à compter de la date fin du contrat (contrat frais de
-																																																																																																																								                  santé et contrat garantissant uniquement l'arrêt de travail
-																																																																																																																								                  uniquement)<br/>
-								30 ans à compter de la date fin du contrat (contrat comportant
-																																																																																																																								                  une garantie contre le risque décès)
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Bordereaux de cotisations
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								10 ans à compter de l'envoi du bordereau.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Bulletins d'adhésion et d'affiliation
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Conservation du document pendant la durée de
-																																																																																																																								                  l'adhésion/l'affiliation et :<br/>
-								- 5 ans après la fin de la relation contractuelle pour les
-																																																																																																																								                  contrats ne contenant pas des risques décès ;<br/>
-								- 30 ans après la fin de la relation contractuelle pour les
-																																																																																																																								                  contrats contenant des risques décès.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Tout dossier sinistre (hors Frais de santé)
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Pendant la durée de l'affiliation au contrat et 30 ans après
-																																																																																																																								                  le dernier règlement.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Dossier Frais de Santé
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Pendant la durée de l'affiliation au contrat et 5 ans après le
-																																																																																																																								                  dernier règlement.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Dossier médicale sans suite
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								6 mois à compter du classement sans suite de la demande.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Dossier d'acceptation médicale
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Pendant la durée de vie du contrat et :<br/>
-								- 5 ans après la fin de la relation contractuelle pour les
-																																																																																																																								                  contrats ne contenant pas des risques décès ;<br/>
-								- 30 ans après la fin de la relation contractuelle pour les
-																																																																																																																								                  contrats contenant des risques décès.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Données comptables et les pièces justificatives
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								10 ans après inscription comptable.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Dossier Fraude non avéré
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								6 mois en cas de fraude non pertinente.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 border-b border-gray-200">
-								Dossier Fraude
-							</td>
-							<td class="py-3 px-4 border-b border-gray-200">
-								5 ans à compter de la clôture du dossier fraude, auquel
-																																																																																																																								                  s'ajoute le délai de l'éventuelle procédure judiciaire.
-							</td>
-						</tr>
-						<tr>
-							<td class="py-3 px-4 rounded-bl-xl border-b border-gray-200">
-								Dossier LCB/FT
-							</td>
-							<td class="py-3 px-4 rounded-br-xl border-b border-gray-200">
-								5 ans à compter de la date de clôture du dossier/ cessation de
-																																																																																																																								                  la relation d'affaire ou à compter de l'exécution de
-																																																																																																																								                  l'opération.
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient  mb-6 mt-12">
-				Quelles sont les procédures de sécurité mises en place par AKSAM
-																																																												          ASSURANCES pour protéger vos données personnelles ?
-			</h2>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4">Sécurité</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Données personnelles que vous nous donnez
-			</p>
-			<p class="text-base text-gray-700 mb-8">
-				Nous respectons la loi Informatique et libertés en matière de sécurité
-																																																												          et de confidentialité de vos données, ainsi que selon les nouvelles
-																																																												          obligations du règlement général de la protection des données à
-																																																												          caractère professionnel (RGPD). A ce titre, nous prenons les
-																																																												          précautions utiles, au regard de la nature de vos données et des
-																																																												          risques présentés par notre traitement, pour préserver la sécurité des
-																																																												          données et, notamment, empêcher qu'elles soient déformées,
-																																																												          endommagées, ou que des tiers non autorisés y aient accès (protection
-																																																												          physique des locaux, procédé d'authentification de nos conseillers
-																																																												          avec accès personnel et sécurisé via des identifiants et mots de passe
-																																																												          confidentiels, journalisation des connexions, chiffrement de certaines
-																																																												          données,…). En outre, toutes les données que vous nous communiquées
-																																																												          via les formulaires en ligne sont cryptées grâce au certificat dont
-																																																												          nous bénéficions. Vous pouvez également vous opposer, pour des motifs
-																																																												          légitimes, à ce que des données à caractère personnel vous concernant
-																																																												          fassent l'objet du traitement que nous mettons en œuvre. Ces droits
-																																																												          peuvent être exercés, par simple demande par courrier électronique à
-																																																												          l'adresse dédiée contact@aksam-assurances.fr ou par courrier papier à
-																																																												          l'adresse : AKSAM Assurances – 10 Rue de Penthièvre 75008 PARIS, ou
-																																																												          par téléphone au 01 82 83 48 00 en justifiant de votre identité et
-																																																												          d'un motif légitime lorsque celui-ci est exigé par la loi.
-			</p>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4 mt-12">
-				Comment sont utilisés les cookies ?
-			</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Les cookies sont utilisés dans différents buts. Ils permettent de vous
-																																																												          identifier en tant qu'utilisateur unique lorsque vous naviguez sur
-																																																												          plusieurs pages d'un site Internet.
-			</p>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4 mt-12">
-				Les cookies de tiers
-			</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Google Analytics : Le site utilise le service Google Analytics,
-																																																												          fournit par Google Inc («Google»), qui permet d'analyser le site. Les
-																																																												          données générées par ces cookies concernent :
-			</p>
-			<ul class="list-disc list-inside space-y-2 text-base text-gray-700 mb-8">
-				<li>Votre utilisation du site</li>
-				<li>
-					Votre adresse IP afin de déterminer la ville de connexion. Cette
-																																																																											            donnée est immédiatement anonymisée après localisation.
-				</li>
-			</ul>
-			<p class="text-base text-gray-700 mb-8">
-				Ces données sont transmises et stockées par Google sur des serveurs
-																																																												          situés aux États-Unis. Les entités de Google sont adhérentes au Safe
-																																																												          Harbor et assurent un niveau de protection adéquat des données
-																																																												          (Décision 2000/520/CE du 26-7-2000). L'utilisateur peut pour avoir
-																																																												          plus d'informations se rendre à la page :
-																																																												          www.google.com/analytics/learn/privacy.html.
-			</p>
-
-			<h2 class="text-2xl md:text-3xl font-bold text-gradient  mb-6 mt-12">
-				Puis-je contrôler les informations personnelles que j'ai partagées
-																																																												          avec Aksam ASSURANCES ?
-			</h2>
-
-			<h3 class="text-xl font-bold text-gradient  mb-4">Vos droits</h3>
-			<p class="text-base text-gray-700 mb-8">
-				Il est rappelé que, conformément aux dispositions de la loi n°78-17
-																																																												          dite « Informatique et Libertés » du 6 janvier 1978 telle que modifiée
-																																																												          par la loi du 6 août 2004, ainsi que le règlement n° 2016/679, dit
-																																																												          règlement général sur la protection des données (RGPD), constitue le
-																																																												          texte de référence européen en matière de protection des données à
-																																																												          caractère personnel : vous disposez d'un droit d'accès, de
-																																																												          rectification, de mise à jour, de verrouillage ou d'effacement des
-																																																												          données à caractère personnel vous concernant, qui sont inexactes,
-																																																												          incomplètes, équivoques, périmées, ou dont la collecte, l'utilisation,
-																																																												          la communication ou la conservation est interdite. Vous pouvez
-																																																												          également vous opposer, pour des motifs légitimes, à ce que des
-																																																												          données à caractère personnel vous concernant fassent l'objet du
-																																																												          traitement que nous mettons en œuvre. Ces droits peuvent être exercés,
-																																																												          par simple demande par courrier électronique à l'adresse dédiée
-																																																												          contact@aksam-assurances.fr ou par courrier papier à l'adresse : Aksam
-																																																												          ASSURANCES – 10 rue de Penthièvre 75008 PARIS, France, en justifiant
-																																																												          de votre identité et d'un motif légitime lorsque celui-ci est exigé
-																																																												          par la loi. Il est rappelé que AKSAM ASSURANCES dispose d'un délai
-																																																												          légal de 2 mois pour répondre à votre demande. Cependant, nous mettons
-																																																												          tout en œuvre pour respecter un délai maximum de 15 jours ouvrés suite
-																																																												          à la réception de votre demande. Conformément à la loi 2014-344 du 17
-																																																												          mars 2014 relative à la consommation, vous disposez également d'un
-																																																												          droit d'opposition au démarchage téléphonique en vous inscrivant
-																																																												          gratuitement sur la liste d'opposition Bloctel. Toutefois, il est
-																																																												          rappelé que dans le cadre de l'utilisation de nos services, le fait de
-																																																												          remplir une demande de devis sur notre site vaut consentement libre et
-																																																												          non équivoque, et le dispositif Bloctel ne pourra s'appliquer. Le
-																																																												          responsable du traitement est la société AKSAM ASSURANCES,
-																																																												          immatriculée au RCS de PARIS sous le numéro 840 653 463. Pour rappel,
-																																																												          le traitement mis en œuvre repose sur plusieurs fonctionnalités ayant
-																																																												          pour finalités la mise à disposition d'offres personnalisées
-																																																												          d'assurances, le comparatif de ces offres, l'analyse et le reporting
-																																																												          de statistiques anonymes. AKSAM ASSURANCES dispose d'une plateforme
-																																																												          téléphonique nommé AKSAM ASSURANCES et qui est situé en dehors de
-																																																												          l'UE. La succursale se compose de plusieurs services et d'un personnel
-																																																												          hautement qualifié. Elle se compose d'un service commercial, d'un
-																																																												          service de gestion, d'un service qualité et d'une cellule informatique
-																																																												          qui assure la protection de nos serveurs ainsi que de vos données.
-																																																												          Nous vous informons que cette politique de protection des données
-																																																												          personnelles peut être modifiée par notre délégué de protection des
-																																																												          données. Dans ce cas, ces modifications seront consultables sur cette
-																																																												          page.
-			</p>
-		</div>
-		<!-- CTA Section -->
-		<div class="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-3xl p-12 text-dark text-center relative overflow-hidden">
-			<div class="absolute inset-0 bg-scanlines opacity-10"></div>
-			<div class="relative">
-				<div class="w-16 h-16 bg-dark/20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-					<i class="fas fa-home text-3xl text-dark"></i>
+				<!-- Conditions juridiques -->
+				<div class="mentions-section">
+					<div class="mentions-header">
+						<div class="mentions-icon">
+							<i class="fas fa-info-circle"></i>
+						</div>
+						<div>
+							<h2 class="mentions-title">Conditions juridiques</h2>
+						</div>
+					</div>
+					<p style="color: var(--text-light); line-height: 1.6;">
+						En envoyant un courrier électronique à la société ou en accédant et/ou utilisant le Site Internet www.tarif-mutuelle-senior.fr, chaque personne physique (ci-après « l'Utilisateur ») déclare et garantit qu'elle a pris préalablement connaissances des présentes conditions juridiques, c'est-à-dire des informations légales, des règles applicables à la protection des données à caractère personnelles et des conditions d'utilisation et qu'elle en accepte les termes et conditions sans réserve, modification ou restriction.
+					</p>
 				</div>
-				<h2 class="text-4xl font-bold mb-6 text-dark">Retour à l'accueil</h2>
-				<p class="text-xl mb-8 text-dark/90 max-w-3xl mx-auto leading-relaxed">
-					Découvrez nos offres d'assurance sante et obtenez votre devis personnalisé en quelques clics.
-				</p>
-				<a href="/" class="inline-block bg-dark text-yellow-400 font-bold py-4 px-10 rounded-2xl hover:bg-primary transition-all transform hover:scale-105 shadow-2xl">
-					<i class="fas fa-arrow-left mr-2"></i>
-					Retour à l'accueil
-				</a>
+
+				<!-- Éditeur et Hébergeur -->
+				<div class="mentions-grid">
+					<div class="mentions-section">
+						<div class="mentions-header">
+							<div class="mentions-icon">
+								<i class="fas fa-building"></i>
+							</div>
+							<div>
+								<h3 class="mentions-title">Éditeur</h3>
+							</div>
+						</div>
+						<p style="color: var(--text-light); margin-bottom: 1rem;">
+							Le site www.assurance-pour-vtc.fr est édité par la société
+							<strong>AKSAM ASSURANCES</strong>
+							SARL AU au capital de 10.000 €
+						</p>
+						<div class="info-box">
+							<strong>Siège social :</strong>
+							10 Rue de Penthièvre 75008 Paris<br>
+							<strong>SIRET :</strong>
+							84065346300033<br>
+							<strong>R.C.S Paris :</strong>
+							840 653 463<br>
+							<strong>ORIAS :</strong>
+							180 074 24
+						</div>
+					</div>
+
+					<div class="mentions-section">
+						<div class="mentions-header">
+							<div class="mentions-icon">
+								<i class="fas fa-server"></i>
+							</div>
+							<div>
+								<h3 class="mentions-title">Hébergeur</h3>
+							</div>
+						</div>
+						<p style="color: var(--text-light); margin-bottom: 1rem;">
+							Le présent Site est hébergé par la société NAMECHEAP.
+						</p>
+						<div class="info-box">
+							<strong>Adresse :</strong>
+							4600 E Washington St suite 305, Phoenix, AZ 85034.
+						</div>
+						<h4 style="color: var(--primary-blue); margin: 1.5rem 0 1rem;">Liens hypertextes</h4>
+						<p style="color: var(--text-light); font-size: 0.9rem;">
+							Leur contenu et/ou les documents accessibles à partir des liens hypertextes publiés sur le Site Web ne sauraient engager la responsabilité de la société.
+						</p>
+					</div>
+				</div>
+
+				<!-- Cookies Section -->
+				<div class="mentions-section">
+					<div style="text-align: center; margin-bottom: 2rem;">
+						<h2 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 1rem;">Utilisation des cookies</h2>
+						<p style="color: var(--text-light);">Nous utilisons différents types de cookies pour améliorer votre expérience sur notre site.</p>
+					</div>
+
+					<div class="cookies-grid">
+						<div class="cookie-card">
+							<div class="cookie-number">1</div>
+							<h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Cookies fonctionnels</h4>
+							<p style="color: var(--text-light); font-size: 0.9rem;">
+								Permettent au site de se souvenir des choix que vous faites et d'améliorer votre navigation. Durée de vie courte, maximum 13 mois.
+							</p>
+						</div>
+
+						<div class="cookie-card">
+							<div class="cookie-number" style="background: var(--secondary-blue);">2</div>
+							<h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Cookies statistiques</h4>
+							<p style="color: var(--text-light); font-size: 0.9rem;">
+								Collectent des informations pour étudier la navigation : nombre de visites, pages visitées, provenance des visiteurs, etc.
+							</p>
+						</div>
+
+						<div class="cookie-card">
+							<div class="cookie-number" style="background: #f59e0b;">3</div>
+							<h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Cookies sociaux</h4>
+							<p style="color: var(--text-light); font-size: 0.9rem;">
+								Permettent le partage de contenus sur les réseaux sociaux comme LinkedIn, Viadeo et autres.
+							</p>
+						</div>
+					</div>
+
+					<div class="info-box" style="margin-top: 2rem;">
+						<h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Configuration des cookies</h4>
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+							<div>
+								<a href="https://support.mozilla.org" style="color: var(--primary-blue); text-decoration: none;">🌐 Firefox</a><br>
+								<a href="http://windows.microsoft.com" style="color: var(--primary-blue); text-decoration: none;">🌐 Internet Explorer</a><br>
+								<a href="https://support.google.com" style="color: var(--primary-blue); text-decoration: none;">🌐 Google Chrome</a>
+							</div>
+							<div>
+								<a href="http://www.commentcamarche.net" style="color: var(--primary-blue); text-decoration: none;">🌐 Safari</a><br>
+								<a href="http://help.opera.com" style="color: var(--primary-blue); text-decoration: none;">🌐 Opéra</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Protection des données et droits -->
+				<div class="mentions-grid">
+					<div class="mentions-section">
+						<div class="mentions-header">
+							<div class="mentions-icon">
+								<i class="fas fa-shield-alt"></i>
+							</div>
+							<div>
+								<h3 class="mentions-title">Protection des données personnelles</h3>
+							</div>
+						</div>
+						<p style="color: var(--text-light); margin-bottom: 1rem;">
+							Les informations personnelles recueillies feront l'objet d'un traitement automatisé conformément à la loi française n° 78-17 du 6 janvier 1978.
+						</p>
+						<div class="contact-box">
+							<strong>Contact :</strong><br>
+							AKSAM ASSURANCES<br>
+							10 Rue de Penthièvre 75008 Paris<br>
+							Email: contact@aksam-assurances.fr
+						</div>
+					</div>
+
+					<div class="mentions-section">
+						<div class="mentions-header">
+							<div class="mentions-icon">
+								<i class="fas fa-user-shield"></i>
+							</div>
+							<div>
+								<h3 class="mentions-title">Vos droits</h3>
+							</div>
+						</div>
+						<ul class="rights-list">
+							<li>Confirmation du traitement de vos données</li>
+							<li>Accès à vos données personnelles</li>
+							<li>Modification et suppression</li>
+							<li>Opposition au traitement</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Propriété intellectuelle et réclamations -->
+				<div class="mentions-grid">
+					<div class="mentions-section">
+						<div class="mentions-header">
+							<div class="mentions-icon">
+								<i class="fas fa-copyright"></i>
+							</div>
+							<div>
+								<h3 class="mentions-title">Droit d'auteur et propriété intellectuelle</h3>
+							</div>
+						</div>
+						<p style="color: var(--text-light); margin-bottom: 1rem;">
+							Le site et son contenu font l'objet d'une protection légale au titre de la propriété littéraire et artistique. Il est interdit de copier ou reproduire tout ou partie du contenu du site.
+						</p>
+						<div class="warning-box">
+							<strong>Important :</strong>
+							Le non-respect de ces règles peut engager votre responsabilité civile et pénale.
+						</div>
+					</div>
+
+					<div class="mentions-section">
+						<div class="mentions-header">
+							<div class="mentions-icon">
+								<i class="fas fa-exclamation-triangle"></i>
+							</div>
+							<div>
+								<h3 class="mentions-title">Réclamations</h3>
+							</div>
+						</div>
+						<p style="color: var(--text-light); margin-bottom: 1rem;">Pour toute réclamation, contactez-nous :</p>
+
+						<div class="contact-box">
+							<strong>Téléphone :</strong>
+							01 82 83 48 00<br>
+							<strong>Email :</strong>
+							contact@aksam-assurances.fr<br>
+							<strong>Adresse :</strong>
+							10 rue de Penthièvre 75008 Paris
+						</div>
+
+						<div class="info-box" style="margin-top: 1rem;">
+							<strong>Médiateur :</strong><br>
+							La Médiation de la consommation PLANÈTE COURTIER<br>
+							Email : mediation@planetecourtier.com
+						</div>
+					</div>
+				</div>
+
+				<!-- CTA Section -->
+				<div class="cta-section">
+					<div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 20px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
+						<i class="fas fa-home" style="font-size: 2rem; color: var(--white);"></i>
+					</div>
+					<h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--white);">Retour à l'accueil</h2>
+					<p style="font-size: 1.1rem; margin-bottom: 0; color: rgba(255,255,255,0.9);">
+						Découvrez nos offres d'assurance santé et obtenez votre devis personnalisé en quelques clics.
+					</p>
+					<a href="/" class="btn-home">
+						<i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+						Retour à l'accueil
+					</a>
+				</div>
 			</div>
 		</div>
-	</main>
+	</section>
 
-	<!-- Scripts -->
-	<script>
-		// Smooth scrolling for anchor links
+	<!-- Scripts existants -->
+ <script>
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({behavior: 'smooth', block: 'start'});
-}
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+    });
 });
-});
-	</script><!-- Cookie Scripts --><script>
-		document.addEventListener('DOMContentLoaded', function (event) {
-if (document.cookie.indexOf('aksamPerformance') < 0) {
-const banner = document.createElement('div');
-banner.innerHTML = `
-                    <div class="fixed bottom-6 left-6 right-6 bg-surface p-6 rounded-2xl shadow-2xl z-50 max-w-md mx-auto border border-primary/20">
-                        <div class="flex items-start space-x-4">
-                            <div class="p-2 bg-yellow-100 rounded-xl">
-                                <i class="fas fa-cookie-bite text-yellow-500 text-xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="font-bold text-dark mb-2">Cookies et confidentialité</h4>
-                                <p class="text-sm text-gray-600 mb-4">www.assurance-pour-sante.fr utilise des cookies pour vous offrir le meilleur service.</p>
-                                <div class="flex space-x-2">
-                                    <button onclick="acceptCookies()" class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-dark px-4 py-2 rounded-xl text-sm font-medium transition-all hover:scale-105 shadow-md">
-                                        <i class="fas fa-check mr-1"></i>J'accepte
-                                    </button>
-                                    <button onclick="this.closest('.fixed').remove()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm transition-all hover:bg-gray-300">
-                                        Refuser
-                                    </button>
-                                </div>
-                            </div>
+
+// Cookie banner
+document.addEventListener('DOMContentLoaded', function (event) {
+    if (document.cookie.indexOf('aksamPerformance') < 0) {
+        const banner = document.createElement('div');
+        banner.innerHTML = `
+            <div style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: var(--white); padding: 1.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 1000; max-width: 400px; margin: 0 auto; border: 1px solid #e9ecef;">
+                <div style="display: flex; align-items: start; gap: 1rem;">
+                    <div style="padding: 0.5rem; background: #fef3c7; border-radius: 10px;">
+                        <i class="fas fa-cookie-bite" style="color: #f59e0b; font-size: 1.2rem;"></i>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4 style="font-weight: bold; color: var(--text-dark); margin-bottom: 0.5rem; font-size: 1rem;">Cookies et confidentialité</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">www.assurance-pour-sante.fr utilise des cookies pour vous offrir le meilleur service.</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button onclick="acceptCookies()" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 0.5rem 1rem; border-radius: 10px; border: none; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: transform 0.2s;">
+                                <i class="fas fa-check" style="margin-right: 0.25rem;"></i>J'accepte
+                            </button>
+                            <button onclick="this.closest('[style*=fixed]').remove()" style="background: #e5e7eb; color: #6b7280; padding: 0.5rem 1rem; border-radius: 10px; border: none; font-size: 0.9rem; cursor: pointer; transition: background 0.2s;">
+                                Refuser
+                            </button>
                         </div>
                     </div>
-                `;
-document.body.appendChild(banner);
-}
+                </div>
+            </div>
+        `;
+        document.body.appendChild(banner);
+    }
 });
 
 function acceptCookies() {
-const expiryDate = new Date();
-expiryDate.setMonth(expiryDate.getMonth() + 1);
-document.cookie = 'aksamPerformance=1; path=/; expires=' + expiryDate.toGMTString();
-document.querySelector('.fixed.bottom-6').remove();
+    const expiryDate = new Date();
+    expiryDate.setMonth(expiryDate.getMonth() + 1);
+    document.cookie = 'aksamPerformance=1; path=/; expires=' + expiryDate.toGMTString();
+    document.querySelector('[style*="position: fixed"]').remove();
 }
-	</script><!-- JSON-LD --><script type="application/ld+json">{
-																										"@context": "http://schema.org",
-																										"@type": "WebPage",
-																										"name": "Mentions légales - Assurance sante",
-																										"description": "Mentions légales et conditions d'utilisation du site Aksam Assurances",
-																										"url": "https://www.assurance-pour-sante.fr/mentions-legales",
-																										"publisher": {
-																											"@type": "Organization",
-																											"name": "Aksam Assurances",
-																											"telephone": "01 82 83 48 00",
-																											"address": {
-																												"@type": "PostalAddress",
-																												"streetAddress": "10 rue de Penthièvre",
-																												"addressCountry": "FR",
-																												"addressLocality": "PARIS",
-																												"postalCode": "75008"
-																											}
-																										}
-																									}</script>
+</script>
+
+	<!-- JSON-LD -->
+	 <script type="application/ld+json">
+			{
+			    "@context": "http://schema.org",
+			    "@type": "WebPage",
+			    "name": "Mentions légales - Assurance santé",
+			    "description": "Mentions légales et conditions d'utilisation du site Aksam Assurances",
+			    "url": "https://www.tarif-mutuelle-senior.fr/mentions-legales",
+			    "publisher": {
+			        "@type": "Organization",
+			        "name": "Aksam Assurances",
+			        "telephone": "01 82 83 48 00",
+			        "address": {
+			            "@type": "PostalAddress",
+			            "streetAddress": "10 rue de Penthièvre",
+			            "addressCountry": "FR",
+			            "addressLocality": "PARIS",
+			            "postalCode": "75008"
+			        }
+			    }
+			}
+			</script>
+
 {% endblock %}
